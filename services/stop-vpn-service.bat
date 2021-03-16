@@ -1,0 +1,1 @@
+powershell -ExecutionPolicy ByPass -Command "&{Start-Process powershell -ArgumentList '-Command "invoke-command -scriptblock {Stop-Service -Name %1}"' -Verb RunAs}"

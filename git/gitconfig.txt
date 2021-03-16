@@ -1,0 +1,43 @@
+[http]
+    sslBackend = schannel
+    sslCAInfo = ~/scoop/apps/git/current/mingw64/ssl/certs/ca-bundle.crt
+[credential]
+    helper = manager
+    useHttpPath = true
+[alias]
+    # Debug git commands.
+    # Usage: git debug [other git command]
+    #        e.g. git debug status
+    debug = !GIT_TRACE=1 git
+
+    # Switches to and pulls given branch, switches back to the current branch and merges from given branch.
+    # Usage: git quickmerge [other branch name]
+    #        e.g. git quickmerge master
+    quickmerge = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git merge --no-ff $1 && :
+
+    # Switches to and pulls given branch.
+    # Usage: git pullitch [other branch name]
+    #        e.g. git pullitch master
+    pullitch = !git switch $1 && git pull && :
+
+    # Deletes branches squashed into given branch.
+    # Usage: git delete-squashed-branches [branch name]
+    # Based on https://github.com/not-an-aardvark/git-delete-squashed
+    delete-squashed = "!git checkout -q $1 && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $1 $branch) && [[ $(git cherry $1 $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done" && :
+
+    # Rename a file or a folder. Supports rename operations with only case changes.
+    # Usage: git rename [original file/folder name] [new file/folder name]
+    #        e.g. git rename src/utils/Log src/utils/log
+    rename = !git mv \"$1\" \"$1_TMP\" && git mv \"$1_TMP\" \"$2\" && :
+
+    # Append staged changes to last commit without editing commit message
+    # Usage: git append
+    append = !git commit --amend --no-edit && :
+
+    # Shortens the given commit hash
+    # Usage: git shorten [commit hash]
+    shorten = !git rev-parse --short $1 && :
+
+    # Change last commit's message
+    # Usage : git reword "[new message]"
+    reword = !git commit --amend -m \"$1\" && :
