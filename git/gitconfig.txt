@@ -21,7 +21,7 @@
     pullitch = !git switch $1 && git pull && :
 
     # Deletes branches squashed into given branch.
-    # Usage: git delete-squashed-branches [branch name]
+    # Usage: git delete-squashed [branch name]
     # Based on https://github.com/not-an-aardvark/git-delete-squashed
     delete-squashed = "!git checkout -q $1 && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $1 $branch) && [[ $(git cherry $1 $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done" && :
 
