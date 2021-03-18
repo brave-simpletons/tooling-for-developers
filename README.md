@@ -8,6 +8,7 @@ This mono-repo contains some tools to help developers setting things up in a Win
 [![GitHub last commit](https://img.shields.io/github/last-commit/brave-simpletons/tooling-for-developers/main?logo=git&logoColor=white)](https://github.com/brave-simpletons/tooling-for-developers/commits/main)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/brave-simpletons/tooling-for-developers)](https://github.com/brave-simpletons/tooling-for-developers/pulls)
 [![GitHub issues](https://img.shields.io/github/issues/brave-simpletons/tooling-for-developers)](https://github.com/brave-simpletons/tooling-for-developers/issues)
+[![GitHub contributors](https://img.shields.io/github/contributors-anon/brave-simpletons/tooling-for-developers)](https://github.com/brave-simpletons/tooling-for-developers)
 
 > :construction:
 >
