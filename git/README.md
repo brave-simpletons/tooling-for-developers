@@ -6,7 +6,7 @@
 
 This folder contains configuration for git and also the shell integration of the git-bash (using the `reg` files)
 
-These files are configured with the assumption that you are using [SCOOP](https://scoop.sh), as we do ;)
+These files are configured with the assumption that you are using [SCOOP](https://scoop.sh).
 
 ## Git Config
 
