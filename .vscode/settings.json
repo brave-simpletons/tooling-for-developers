@@ -17,5 +17,14 @@
     "peacock.affectAccentBorders": true,
     "peacock.affectTabActiveBorder": true,
     "peacock.affectStatusAndTitleBorders": false,
-    "peacock.affectDebuggingStatusBar": false
+    "peacock.affectDebuggingStatusBar": false,
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "powershell"
+    ]
 }
