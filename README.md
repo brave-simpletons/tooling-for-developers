@@ -2,17 +2,19 @@
 
 ## Overview
 
-This repo contains some tools to help developers setting things up in a Windows environment. It contains tools, scripts, extensions and config file that are "nice to have".
+This mono-repo contains some tools to help developers setting things up in a Windows environment. It contains tools, scripts, extensions and config files that are "nice to have".
 
-> It is still a `WORK IN PROGRESS`
+> :construction:
+> It is still a `Work in progress`
+> :construction_worker:
 
 ## Getting Started
 
 For the moment, to use it, just clone the repo... From there, you should be "Good to go".
 
-Then execute the scripts. Each folder should contains a readme that explains how to use it.
+Each folder should contains a `README.md` file that explains how to use it.
 
-By the way, We know, it's not elegant but we do trust you will contribute with some PR to improve it :P
+We're always improving and your contributions are welcome!
 
 ## Contribute
 
