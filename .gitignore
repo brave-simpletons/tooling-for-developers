@@ -1,4 +1,8 @@
-# exclude script output files
-*/backup/*
+# scoop : exclude script output files
+buckets.txt
+apps.newer.txt
+apps.version.txt
+
+# vscode : exclude script output files
 vscode.extensions.txt
 vscode-insiders.extensions.txt

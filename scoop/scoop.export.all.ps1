@@ -10,7 +10,7 @@ function Export-Buckets {
     )
 
     # export BUCKETS
-    scoop export | Select-String '\[(\w+)\]' | ForEach-Object { $_.matches.groups[1].value } | Select-Object -unique > "$Path\backup\buckets.txt"
+    scoop export | Select-String '\[(\w+)\]' | ForEach-Object { $_.matches.groups[1].value } | Select-Object -unique > "$Path\buckets.txt"
 }
 
 function Export-AppAndVersions {
@@ -20,7 +20,7 @@ function Export-AppAndVersions {
     )
 
     # export APPS without version (i.e.: during import, it will install the latest version)
-    scoop export | select-string '^(.+)\W\(v:' | ForEach-Object { $_.matches.groups[1].value } > "$Path\backup\apps.newer.txt"
+    scoop export | select-string '^(.+)\W\(v:' | ForEach-Object { $_.matches.groups[1].value } > "$Path\apps.newer.txt"
 }
 
 function Export-AppNameOnly {
@@ -30,7 +30,7 @@ function Export-AppNameOnly {
     )
 
     # export APPS with EXACT version :
-    scoop export | select-string '^(.+)\W\(v:(.+)\)' | ForEach-Object { $_.matches.groups[1].value+"@"+$_.matches.groups[2].value } > "$Path\backup\apps.version.txt"
+    scoop export | select-string '^(.+)\W\(v:(.+)\)' | ForEach-Object { $_.matches.groups[1].value+"@"+$_.matches.groups[2].value } > "$Path\apps.version.txt"
 }
 
 Export-Buckets $BasePath

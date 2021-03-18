@@ -21,15 +21,13 @@ Right click on one of the script to execute it with PowerShell :
 - For already "validated" apps use `scoop.import.all.version.ps1`
 - For all newest version of app `scoop.import.all.newer.ps1` (be aware, it might not been validated with VirusTotal)
 
-> [NOTE]
-> You can specify a folder. If not it will try to import app using the file in the current `backup` folder (e.g.: `.\backup\`)
+> You can specify a folder. If not it will try to import app using the file in the current folder.
 
 ### Exporting your Apps
 
 If you need to export your app list for a new team member or to use it throughout multiple computer, you only need to use execute the script `scoop.export.all.ps1`
 
-> [NOTE]
-> You can specify a folder. If not, it will try to export files to the current `backup` folder (e.g.: `.\backup\`)
+> You can specify a folder. If not, it will try to export files to the current folder.
 
 ### App Updates
 
