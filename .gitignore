@@ -1,2 +1,4 @@
-# exclude backup files
+# exclude script output files
 */backup/*
+vscode.extensions.txt
+vscode-insiders.extensions.txt

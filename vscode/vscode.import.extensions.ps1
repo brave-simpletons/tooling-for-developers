@@ -1,16 +1,27 @@
 param(
         [Parameter(Mandatory = $False)]
-        [String] $BasePath="."
+        [String] $BasePath=".",
+
+        [Parameter(Mandatory = $False)]
+        [Boolean] $Insiders=$False
     )
 
 function Import-Extensions {
     param(
         [Parameter(Mandatory = $True)]
-        [String] $Path
+        [String] $Path,
+
+        [Parameter(Mandatory = $True)]
+        [Boolean] $Insiders
     )
 
+    $AppName="code"
+    if($Insiders -eq $True) {
+        $AppName+="-insiders"
+    }
+
     # import Extensions for VSCode
-    Get-Content "$Path\backup\vscode.extensions.txt" | ForEach-Object { code --install-extension $_ }
+    Get-Content $Path\vs$AppName.extensions.txt | ForEach-Object { Invoke-Expression "$AppName --install-extension $_" }
 }
 
-Import-Extensions $BasePath
+Import-Extensions -Path $BasePath -Insiders $Insiders
