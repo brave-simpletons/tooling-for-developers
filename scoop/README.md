@@ -43,4 +43,4 @@ For better automation, you can create a task in the Task Scheduler (or PowerAuto
 
 In the program you can use "powershell.exe" and in the arguments you will need to put something like "-ExecutionPolicy Bypass -File `PathToThisRepoWithoutSpaces`\scoop\updateScoop.ps1", where `PathToThisRepoWithoutSpaces` must be this actual repo or elsewhere if you copy or linked the ps1 elsewhere
 
-It will run at the desired triggers that you'll configure it... (I recommend terminate the action if run after 30min.)
+It will run at the desired triggers that you'll configure it... (It's recommended to terminate the action if it runs more than 30min.)

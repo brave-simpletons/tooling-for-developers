@@ -9,7 +9,7 @@ function Import-Buckets {
         [String] $Path
     )
 
-    Get-Content "$Path\buckets.txt" | ForEach-Object { scoop bucket add $_ }
+    Get-Content "$Path\scoop.buckets.txt" | ForEach-Object { scoop bucket add $_ }
 }
 
 # TODO : virustotal doesn't seems to work properly anymore
@@ -20,7 +20,7 @@ function Import-Buckets {
 #     )
 
 #     # verify virustotal for all apps
-#     Get-Content "$Path\apps.newer.txt" | ForEach-Object  {scoop virustotal $_}
+#     Get-Content "$Path\scoop.apps.newer.txt" | ForEach-Object  {scoop virustotal $_}
 # }
 
 function Import-Apps {
@@ -29,7 +29,7 @@ function Import-Apps {
         [String] $Path
     )
 
-    Get-Content "$Path\apps.newer.txt" | ForEach-Object  {scoop install $_}
+    Get-Content "$Path\scoop.apps.newer.txt" | ForEach-Object  {scoop install $_}
 }
 
 # import buckets
