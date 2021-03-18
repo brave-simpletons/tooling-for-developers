@@ -16,15 +16,20 @@ The batch files force the execution with elevated privileges.
 
 ### Using Batch files
 
-Copy these Batch files (`start-vpn-service.bat` and `stop-vpn-service.bat`) were you see fit.
+Copy these Batch files (`start-service.bat` and `stop-service.bat`) were you see fit.
 
-Execute the batch file followed by the `Name of the service` that you need to start or stop.
+Execute the batch file followed by the `Name of the service` that you need to start or stop. Here is an example :
+
+```powershell
+start-service.bat ServiceName
+```
 
 ### Using a shortcut in the start menu
 
 You can create a standard "shortcut" for each batch files in `%appdata%\Microsoft\Windows\Start Menu\Programs\Personal_Folder_For_Scripts` (where `Personal_Folder_For_Scripts` is the folder's name that you want)
 
 > [Note]
+>
 > Within the Shortcut, do not forget to add the `name of the service` after the batch file name ;)
 
 Then, they will be visible in the application menu. You can also "pin" them in the start menu.
