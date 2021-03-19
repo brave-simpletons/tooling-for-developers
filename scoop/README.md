@@ -25,7 +25,7 @@ Right click on one of the script to execute it with PowerShell :
 
 ### Exporting your Apps
 
-If you need to export your app list for a new team member or to use it throughout multiple computer, you only need to use execute the script `scoop.export.all.ps1`
+If you need to export your app list for a new team member or to use it throughout multiple computers, you only need to use execute the script `scoop.export.all.ps1`
 
 > You can specify a folder. If not, it will try to export files to the current folder.
 
