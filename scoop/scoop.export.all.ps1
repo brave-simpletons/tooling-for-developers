@@ -13,7 +13,7 @@ function Export-Buckets {
     scoop export | Select-String '\[(\w+)\]' | ForEach-Object { $_.matches.groups[1].value } | Select-Object -unique > "$Path\scoop.buckets.txt"
 }
 
-function Export-AppAndVersions {
+function Export-AppNameOnly {
     param(
         [Parameter(Mandatory = $True)]
         [String] $Path
@@ -23,7 +23,7 @@ function Export-AppAndVersions {
     scoop export | select-string '^(.+)\W\(v:' | ForEach-Object { $_.matches.groups[1].value } > "$Path\scoop.apps.newer.txt"
 }
 
-function Export-AppNameOnly {
+function Export-AppAndVersions {
     param(
         [Parameter(Mandatory = $True)]
         [String] $Path
@@ -34,5 +34,5 @@ function Export-AppNameOnly {
 }
 
 Export-Buckets $BasePath
-Export-AppAndVersions $BasePath
 Export-AppNameOnly $BasePath
+Export-AppAndVersions $BasePath
