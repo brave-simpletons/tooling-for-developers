@@ -12,7 +12,9 @@ These files are configured with the assumption that you are using [SCOOP](https:
 
 Update your global `.gitconfig` with the content of the `gitconfig.txt`
 
-Your global `.gitconfig` should be in your "%userprofile%" (or "~") folder
+The git config file can be used at any configuration level: system, global or local.
+
+For more info, you can read the official documentation of about [git config](https://git-scm.com/docs/git-config)
 
 ## Git-Bash Shell Integration
 
