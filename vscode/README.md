@@ -4,10 +4,14 @@ VSCode scripts helps export and import extensions. It's better for onboarding th
 
 ## How to use it
 
+> [!WARNING]
+>
+> We are assuming that the VSCode or VSCode-Insiders executable path is properly configure to be known by Windows (e.g.: exists in `%PATH%` or `$env:PATH`)
+
 First export your extensions using the vscode.export.extensions.ps1 script.
 Then, you'll be able to import these extensions using the vscode.import.extensions.ps1 script.
 
-> [NOTE]
+> [!NOTE]
 >
 > It's essentially a scenario where a newly added teammate imports your extensions
 
