@@ -1,5 +1,7 @@
 # VSCode Extensions
 
+## Overview
+
 VSCode scripts helps export and import extensions. It's better for onboarding than for using it on a day to day basis. For a daily usage we recommend turning on "Settings Sync..."
 
 ## How to use it
