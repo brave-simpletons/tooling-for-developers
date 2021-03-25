@@ -13,7 +13,7 @@ This mono-repo contains some tools to help developers setting things up in a Win
 >
 > It is still a `Work in progress`
 >
-> :construction_worker:
+> :construction:
 
 ## Getting Started
 

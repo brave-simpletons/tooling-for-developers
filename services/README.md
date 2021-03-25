@@ -28,9 +28,9 @@ start-service.bat ServiceName
 
 You can create a standard "shortcut" for each batch files in `%appdata%\Microsoft\Windows\Start Menu\Programs\Personal_Folder_For_Scripts` (where `Personal_Folder_For_Scripts` is the folder's name that you want)
 
-> [Note]
+> :memo: NOTE :memo:
 >
-> Within the Shortcut, do not forget to add the `name of the service` after the batch file name ;)
+> Within the Shortcut, do not forget to add the `name of the service` after the batch file name :wink:
 
 Then, they will be visible in the application menu. You can also "pin" them in the start menu.
 
