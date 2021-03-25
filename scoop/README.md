@@ -1,7 +1,5 @@
 # SCOOP
 
-[[_TOC_]]
-
 ## Overview
 
 Scoop scripts help install export and import apps. Also useful when a new team members must install all the required applications, CLI and tools to work on your projects.

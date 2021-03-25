@@ -1,7 +1,5 @@
 # Configuration for the registry
 
-[[_TOC_]]
-
 ## Overview
 
 This folder contains some nice registry tweaks to help you being more productive

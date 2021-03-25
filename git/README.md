@@ -1,7 +1,5 @@
 # Configuration for Git
 
-[[_TOC_]]
-
 ## Overview
 
 This folder contains configuration for git and also the shell integration of the git-bash (using the `reg` files)

@@ -1,7 +1,5 @@
 # Enabling/Disabling a Services
 
-[[_TOC_]]
-
 ## Overview
 
 It might occur that a specific service required to be started or stopped. For example, if you have a specific service that required to run most of the time but that could interfere with some experimentations that you need to do (i.e.: make sure that a VPN service is enable or disable). For that reason, these scripts could be useful.
