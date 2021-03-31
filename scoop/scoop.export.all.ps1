@@ -10,7 +10,7 @@ function Export-Buckets {
     )
 
     # export BUCKETS
-    scoop export | Select-String '\[(\w+)\]' | ForEach-Object { $_.matches.groups[1].value } | Select-Object -unique > "$Path\scoop.buckets.txt"
+    scoop export | Select-String '\[([\w\-]+)\]' | ForEach-Object { $_.matches.groups[1].value } | Select-Object -unique > "$Path\scoop.buckets.txt"
 }
 
 function Export-AppNameOnly {
