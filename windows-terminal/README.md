@@ -6,7 +6,9 @@ But, you may want to turn it into WOW.
 
 ## Overview
 
-Here, we will describe all the steps to make your terminal look astonishingly WOW so that your coworkers will be jealous how much you can `Shell Like a Bad Ass` :sunglasses:
+Here, we will describe all the steps to make your terminal look astonishingly WOW so that your coworkers will be jealous how much you can `Shell Like a Badass` :sunglasses:
+
+![WT Like a badass](images/wt-like-badass.png)
 
 > :memo: NOTE :memo:
 >
