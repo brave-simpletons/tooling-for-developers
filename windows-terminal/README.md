@@ -147,7 +147,7 @@ If you want to always use PowerShell 7 as the default in Windows Terminal (which
 You should then have something like this:
 
 ```json
-  "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+  "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 ```
 
 ## Working with containers
