@@ -156,7 +156,7 @@ If you are like us and working with Kubernetes, you could also install these app
 
 ```powershell
 scoop update
-scoop install dockercompletion dos2unix kubectx kubens lens pskubectlcompletion rke
+scoop install dockercompletion dos2unix helm kubectl kubectx kubens lens pskubectlcompletion
 ```
 
 > :memo: NOTE :memo:
@@ -165,7 +165,7 @@ scoop install dockercompletion dos2unix kubectx kubens lens pskubectlcompletion 
 
 ### Enabling these other applications in PowerShell 7
 
-Add these information into your PowerShell `$PROFILE`:
+Of course this is optional depending on each applications you installed, but you could add this information after the "posh-git" import in your PowerShell `$PROFILE`:
 
 ```powershell
 Set-Alias -Name k -Value kubectl
