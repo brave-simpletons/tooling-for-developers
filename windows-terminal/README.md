@@ -33,8 +33,8 @@ First, if it's not already installed (what are you waiting for!), you will need 
 You will also need specific known buckets for this to work:
 
 ```powershell
-scoop buckets add extras
-scoop buckets add nerd-fonts
+scoop bucket add extras
+scoop bucket add nerd-fonts
 ```
 
 ### Install all required applications
@@ -51,7 +51,7 @@ Because you are using scoop, the installation of ALL the apps will be easy. Foll
 ```powershell
 # you should always update scoop before working with it
 scoop update
-scoop install windows-terminal pwsh posh-git oh-my-posh3
+scoop install windows-terminal pwsh posh-git oh-my-posh3 sudo
 sudo scoop install Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono
 ```
 
@@ -63,49 +63,24 @@ sudo scoop install Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono
 
 ### Enabling Oh-My-Posh3 and Posh-Git in PowerShell 7
 
-Open PowerShell 7 from your Windows menu or by typing `pwsh.exe`
+These steps will enable Oh-My-Posh3 and Posh-Git
 
-To Enable Oh-My-Posh3 and Posh-Git, you will need to execute this script in PowerShell 7:
+First, go to `windows-terminal/config` and manually copy the folder "PowerShell" (and its content) into in your `$env:UserProfile/Documents`. 
+   
+> :warning: IMPORTANT :warning:
+>
+> Because some Antivirus may find the `PowerShell` folder or file creation a threat, it is easier to create it manually :wink:
+
+Open PowerShell 7 from your Windows menu or by typing `pwsh.exe` in the command line. Then execute the script:
 
 ```powershell
-$sourcePath = "windows-terminal/config"
-
-$themeFilename = "themes/rebel-paradox.omp.json"
-$themeSourcePath = "$sourcePath/$themeFilename"
-$themeDestinationPath = "$(scoop prefix oh-my-posh3)/$themeFilename"
-
-if (!(Test-Path $themeDestinationPath))
-{
-    Copy-Item -Path $themeSourcePath -Destination $themeDestinationPath -Force -Recurse
-}
-else
-{
-    Write-Host "You seems to already have the them, so it won't be installed"
-}
-
-$profileFilename = "PowerShell/Microsoft.PowerShell_profile.ps1"
-$pwshSourcePath = "$sourcePath/$profileFilename"
-$pwshDestinationPath = "$env:UserProfile/Documents/$profileFilename"
-
-if (!(Test-Path $pwshDestinationPath))
-{
-    Copy-Item -Path $pwshSourcePath -Destination $pwshDestinationPath -Force -Recurse
-}
-else
-{
-    Write-Host 'Add these on first line of your powershell profile (that will open):'
-    Write-Host
-    Write-Host 'Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh3)/themes/rebel-paradox.omp.json")'
-    Write-Host 'Import-Module posh-git'
-    Write-Host
-    Notepad $PROFILE
-}
-
-# reload profile
-. $PROFILE
+# Execute the Script in PowerShell 7 (pwsh.exe)
+pwsh.exe ./windows-terminal/config/configurePwsh7.ps1
 ```
 
-Now PowerShell should have some color... But with weird characters. Now times to try something if you use [VsCode](#enabling-powershell-7-in-vscode) :wink:. If not jump to [Windows-Terminal](#enabling-powershell-7-in-windows-terminal)
+Reload the PowerShell Profile by launching a new `pwsh.exe` instance.
+
+Now PowerShell should have some color... But with weird characters. Now, it's times to try something if you use [VsCode](#enabling-powershell-7-in-vscode) :wink:. If not jump to [Windows-Terminal](#enabling-powershell-7-in-windows-terminal)
 
 ### Enabling PowerShell 7 in VsCode
 
@@ -121,9 +96,19 @@ Open the `settings.json` file of the VSCode and change the values of these setti
 
 Open a new terminal in VSCode and Voilà!
 
+> :memo: NOTE :memo:
+>
+> You may need to close VSCode and reopen it if it was open when you installed "posh-git" with Scoop
+
 ### Enabling PowerShell 7 in Windows-Terminal
 
-Open the settings in Windows Terminal (aka: `CTRL+,`) and add this in the `profiles.list[]` then save it:
+Open Windows terminal from your Start Menu or from the command line, using `wt.exe`
+
+> :memo: NOTE :memo:
+> 
+> It may be possible that Windows Terminal will use PowerShell 7 as the defaut. So the next steps may have to be adjusted since it is written as if it wasn't available nor the default one.
+
+Then, open the settings in Windows Terminal (aka: `CTRL+,`) and add this in the `profiles.list[]` then save it:
 
 ```json
       {
@@ -133,10 +118,12 @@ Open the settings in Windows Terminal (aka: `CTRL+,`) and add this in the `profi
           "fontFace" : "CaskaydiaCove NF",
           "fontSize": 10,
           "source": "Windows.Terminal.PowershellCore",
-          "startingDirectory": "c:/sources/indall",
+          "startingDirectory": "~",
           "hidden": false
       }
 ```
+
+If you already have that `guid` in the Settings.json file, then only add the `fontFace`, `fontSize` and you could adapt the `startingDirectory` too.
 
 The `guid` is the actual PowerShell 7 guid's value.
 
@@ -179,12 +166,19 @@ Import-Module DockerCompletion
 Import-Module PSKubectlCompletion
 ```
 
-To open your profile simply use (or use your preferred EDI):
+To open your profile, from `pwsh.exe`, simply use (or use your preferred EDI):
 
 ```powershell
 notepad $PROFILE
 ```
 
+> :memo: NOTE :memo:
+>
+> These tools do works with PowerShell 5 too. You could run the same command in PowerShell 5 to update it's $PROFILE to add these.
+>
+> You can also add `Import-Module posh-git`. But it's no use to add the "oh-my-posh3" invoke command, since it's not supported. To use somthing similar you will have to use the old "Oh-My-Posh v2" which is not longer supported.
+
 ## Some references
 
-[Windows Terminal Tips and Tricks](https://devblogs.microsoft.com/commandline/windows-terminal-tips-and-tricks/)
+- [Windows Terminal Tips and Tricks](https://devblogs.microsoft.com/commandline/windows-terminal-tips-and-tricks/)
+- [What is Windows Terminal?](https://docs.microsoft.com/en-ca/windows/terminal/)
