@@ -4,6 +4,10 @@ Windows Terminal is the great new one. It includes a lot of cool features like t
 
 But, you may want to turn it into WOW.
 
+> :warning: WARNING :warning:
+>
+> Here we will only talk about the installation and configuration on Windows OS even though it should be very similar.
+
 ## Overview
 
 Here, we will describe all the steps to make your terminal look astonishingly WOW so that your coworkers will be jealous how much you can `Shell Like a Badass` :sunglasses:
@@ -57,7 +61,7 @@ sudo scoop install Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono
 
 > :memo: NOTE :memo:
 >
-> Oh-My-Posh3 support other shell like Bash, Zsh, ... but, it will not be explain in this post. You can get more information on [installation documentation](https://ohmyposh.dev/docs/installation) page of oh-my-posh3.
+> Oh-My-Posh3 support other shell like Bash, Zsh, ... but, it will not be explained in this post. You can get more information on the [installation documentation](https://ohmyposh.dev/docs/installation) page of oh-my-posh(v3).
 
 ## Configuration
 
@@ -65,18 +69,23 @@ sudo scoop install Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono
 
 These steps will enable Oh-My-Posh3 and Posh-Git
 
-First, go to `windows-terminal/config` and manually copy the folder "PowerShell" (and its content) into in your `$env:UserProfile/Documents`. 
-   
-> :warning: IMPORTANT :warning:
->
-> Because some Antivirus may find the `PowerShell` folder or file creation a threat, it is easier to create it manually :wink:
-
 Open PowerShell 7 from your Windows menu or by typing `pwsh.exe` in the command line. Then execute the script:
 
 ```powershell
 # Execute the Script in PowerShell 7 (pwsh.exe)
 pwsh.exe ./windows-terminal/config/configurePwsh7.ps1
 ```
+
+At the end of the script execution, it should ask some manual actions. Do to so:
+
+1. Open windows explorer
+2. Go to `./windows-terminal/config`
+3. Manually copy the folder "PowerShell" (and its content)
+4. Paste the "PowerShell" folder into your `$env:UserProfile/Documents` (aka.: "%UserProfile%/Documents" or "~").
+
+> :warning: IMPORTANT :warning:
+>
+> Because some Antivirus may find the `PowerShell` folder or file creation identify them as a threat, it is easier to create it manually :wink:
 
 Reload the PowerShell Profile by launching a new `pwsh.exe` instance.
 
@@ -105,8 +114,8 @@ Open a new terminal in VSCode and Voilà!
 Open Windows terminal from your Start Menu or from the command line, using `wt.exe`
 
 > :memo: NOTE :memo:
-> 
-> It may be possible that Windows Terminal will use PowerShell 7 as the defaut. So the next steps may have to be adjusted since it is written as if it wasn't available nor the default one.
+>
+> It may be possible that Windows Terminal will use PowerShell 7 as the default. So the next steps may have to be adjusted since it is written as if it wasn't available nor the default one.
 
 Then, open the settings in Windows Terminal (aka: `CTRL+,`) and add this in the `profiles.list[]` then save it:
 
@@ -176,7 +185,7 @@ notepad $PROFILE
 >
 > These tools do works with PowerShell 5 too. You could run the same command in PowerShell 5 to update it's $PROFILE to add these.
 >
-> You can also add `Import-Module posh-git`. But it's no use to add the "oh-my-posh3" invoke command, since it's not supported. To use somthing similar you will have to use the old "Oh-My-Posh v2" which is not longer supported.
+> You can also add `Import-Module posh-git`. But it's no use to add the "oh-my-posh3" invoke command, since it's not supported. To use something similar you will have to use the old "Oh-My-Posh v2" which is not longer supported.
 
 ## Some references
 
