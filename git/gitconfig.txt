@@ -15,10 +15,10 @@
     #        e.g. git quickmerge master
     quickmerge = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git merge --no-ff $1 && :
 
-	# Switches to and pulls given branch, switches back to the current branch and rebases on top of given branch.
-	# Usage: git quickrebase [other branch name]
-	#        e.g. git quickrebase master
-	quickrebase = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git rebase $1 && :
+    # Switches to and pulls given branch, switches back to the current branch and rebases on top of given branch.
+    # Usage: git quickrebase [other branch name]
+    #        e.g. git quickrebase master
+    quickrebase = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git rebase $1 && :
 
     # Switches to and pulls given branch.
     # Usage: git pullitch [other branch name]
@@ -47,7 +47,7 @@
     # Usage: git reword "[new message]"
     reword = !git commit --amend -m \"$1\" && :
 
-	# Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch
-	# Usage: git cleanmerged [branch name]
+    # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch
+    # Usage: git cleanmerged [branch name]
     #        e.g. git cleanmerged master
-	cleanmerged = !git switch $1 && git pull -p --tags && git delete-squashed-branches $1 && :
+    cleanmerged = !git switch $1 && git pull -p --tags && git delete-squashed $1 && :
