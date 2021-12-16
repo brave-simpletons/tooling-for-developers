@@ -117,7 +117,7 @@ Open Windows terminal from your Start Menu or from the command line, using `wt.e
 >
 > It may be possible that Windows Terminal will use PowerShell 7 as the default. So the next steps may have to be adjusted since it is written as if it wasn't available nor the default one.
 
-Then, open the settings in Windows Terminal (aka: `CTRL+,`) and add this in the `profiles.list[]` then save it:
+Then, open the settings in Windows Terminal (aka: "%UserProfile%\AppData\Local\Microsoft\Windows Terminal\settings.json") and add this in the `profiles.list[]` then save it:
 
 ```json
       {
