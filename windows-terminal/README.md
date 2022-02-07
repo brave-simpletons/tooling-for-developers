@@ -12,6 +12,7 @@ But, you may want to turn it into WOW.
 
 Here, we will describe all the steps to make your terminal look astonishingly WOW so that your coworkers will be jealous how much you can `Shell Like a Badass` :sunglasses:
 
+<!-- FIXME: Update the image -->
 ![WT Like a badass](images/wt-like-badass.png)
 
 > :memo: NOTE :memo:
@@ -32,13 +33,16 @@ First, if it's not already installed (what are you waiting for!), you will need 
 ./scoop/scoop.base.install.ps1
 ```
 
+This script will also add our special "[brave-simpletons 'scoop-the-business'](https://github.com/brave-simpletons/scoop-the-business)" bucket for scoop.
+
 #### Adding Buckets
 
 You will also need specific known buckets for this to work:
 
 ```powershell
-scoop bucket add extras
 scoop bucket add nerd-fonts
+# If you already had scoop, you must add our 'special bucket' using this command
+scoop bucket add business 'https://github.com/brave-simpletons/scoop-the-business.git'
 ```
 
 ### Install all required applications
@@ -48,26 +52,25 @@ Because you are using scoop, the installation of ALL the apps will be easy. Foll
 - Windows-Terminal : The new terminal in the Block
 - PowerShell 7 : The successor to PowerShell 5 shell
 - Posh-Git : Git auto completion in PowerShell
-- Oh-My-Posh3 : Prompt theme engine
-- Sudo : To force elevated privilege
+- Oh-My-Posh : Prompt theme engine
+- ~Sudo : To force elevated privilege~ [obsolete since nerd-fonts now can be installed per user]
 - Cascadia-Code fonts
 
 ```powershell
 # you should always update scoop before working with it
 scoop update
-scoop install windows-terminal pwsh posh-git oh-my-posh3 sudo
-sudo scoop install Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono
+scoop install windows-terminal pwsh posh-git oh-my-posh Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono
 ```
 
 > :memo: NOTE :memo:
 >
-> Oh-My-Posh3 support other shell like Bash, Zsh, ... but, it will not be explained in this post. You can get more information on the [installation documentation](https://ohmyposh.dev/docs/installation) page of oh-my-posh(v3).
+> Oh-My-Posh support other shell like Bash, Zsh, ... but, it will not be explained in this post. You can get more information on the [installation documentation](https://ohmyposh.dev/docs/) page of oh-my-posh.
 
 ## Configuration
 
-### Enabling Oh-My-Posh3 and Posh-Git in PowerShell 7
+### Enabling Oh-My-Posh and Posh-Git in PowerShell 7
 
-These steps will enable Oh-My-Posh3 and Posh-Git
+These steps will enable Oh-My-Posh and Posh-Git
 
 Open PowerShell 7 from your Windows menu or by typing `pwsh.exe` in the command line. Then execute the script:
 
@@ -87,7 +90,7 @@ At the end of the script execution, it should ask some manual actions. Do to so:
 >
 > Because some Antivirus may find the `PowerShell` folder or file creation identify them as a threat, it is easier to create it manually :wink:
 
-Reload the PowerShell Profile by launching a new `pwsh.exe` instance.
+Reload the PowerShell Profile by launching a new `pwsh.exe` instance or reload the profile in an active PowerShell session using `. $PROFILE`.
 
 Now PowerShell should have some color... But with weird characters. Now, it's times to try something if you use [VsCode](#enabling-powershell-7-in-vscode) :wink:. If not jump to [Windows-Terminal](#enabling-powershell-7-in-windows-terminal)
 
@@ -97,10 +100,15 @@ Open the `settings.json` file of the VSCode and change the values of these setti
 
 ```json
     "terminal.integrated.fontFamily": "CaskaydiaCove NF",
-    "terminal.integrated.shell.windows": "pwsh.exe",
-    "terminal.integrated.shellArgs.windows": [
-        "-NoLogo"
-    ]
+    "terminal.integrated.defaultProfile.windows":"Pwsh",
+    "terminal.integrated.profiles.windows": {
+        "Pwsh": {
+            "path": "pwsh.exe",
+            "args": [
+                "-NoLogo"
+            ]
+        }
+    }
 ```
 
 Open a new terminal in VSCode and Voilà!
@@ -109,6 +117,7 @@ Open a new terminal in VSCode and Voilà!
 >
 > You may need to close VSCode and reopen it if it was open when you installed "posh-git" with Scoop
 
+<!-- FIXME: Update this section with the new WT12 -->
 ### Enabling PowerShell 7 in Windows-Terminal
 
 Open Windows terminal from your Start Menu or from the command line, using `wt.exe`
