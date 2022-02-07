@@ -1,7 +1,7 @@
 
-$themeFilename = "themes\rebel-paradox.omp.json"
+$themeFilename = "themes\new-rebels.omp.json"
 $themeSourcePath = "$PSScriptRoot\$themeFilename"
-$themeDestinationPath = "$(scoop prefix oh-my-posh3)\$themeFilename"
+$themeDestinationPath = "$(scoop prefix oh-my-posh)\$themeFilename"
 
 if (!(Test-Path $themeDestinationPath))
 {
@@ -36,7 +36,7 @@ else
     Write-Host "It appears that you already have $PROFILE file..." -Foreground Green
     Write-Host
     Write-Host "Add these as first lines of your powershell profile (that will open using Notepad):"
-    Write-Host "Invoke-Expression (oh-my-posh --init --shell pwsh --config ""$(scoop prefix oh-my-posh3)/themes/rebel-paradox.omp.json"")" -Foreground Yellow
+    Write-Host "Invoke-Expression (oh-my-posh --init --shell pwsh --config ""$(scoop prefix oh-my-posh)/themes/rebel-paradox.omp.json"")" -Foreground Yellow
     Write-Host "Import-Module posh-git" -Foreground Yellow
     Write-Host
     Notepad $PROFILE

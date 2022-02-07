@@ -6,3 +6,4 @@ Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.
 
 # install the core requirements
 scoop install 7zip git
+scoop bucket add business 'https://github.com/brave-simpletons/scoop-the-business.git'
