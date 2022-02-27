@@ -353,8 +353,8 @@
                     "type": "exit"
                 },
                 {
-                    "background": "#0077c2",
-                    "foreground": "#ffffff",
+                    "background": "#4075CC",
+                    "foreground": "#0C0C0C",
                     "powerline_symbol": "\ue0b0",
                     "properties": {
                         "template": "<transparent> \uf1d0  \uf054</>"
@@ -363,7 +363,7 @@
                     "type": "shell"
                 },
                 {
-                    "foreground": "#0077c2",
+                    "foreground": "#4075CC",
                     "properties": {
                         "template": "\ue285\uf641"
                     },
