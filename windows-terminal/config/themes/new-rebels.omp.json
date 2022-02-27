@@ -143,8 +143,8 @@
                     "type": "exit"
                 },
                 {
-                    "background": "#ffffff",
-                    "foreground": "#100e23",
+                    "background": "#999999",
+                    "foreground": "#0c0c0c",
                     "powerline_symbol": "\ue0b0",
                     "properties": {
                         "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}@{{ .HostName }} "
