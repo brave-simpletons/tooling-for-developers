@@ -127,7 +127,7 @@
                     "invert_powerline": true,
                     "powerline_symbol": "\ue0b2",
                     "properties": {
-                        "template": " \uf0f0 "
+                        "template": " \uf21b "
                     },
                     "style": "powerline",
                     "type": "root"
@@ -266,7 +266,7 @@
                     "invert_powerline": true,
                     "powerline_symbol": "\ue0b2",
                     "properties": {
-                        "template": " \uf0f0 "
+                        "template": " \uf21b "
                     },
                     "style": "powerline",
                     "type": "root"
@@ -337,7 +337,7 @@
                     "invert_powerline": true,
                     "powerline_symbol": "\ue0b2",
                     "properties": {
-                        "template": " \uf0f0 "
+                        "template": " \uf21b "
                     },
                     "style": "powerline",
                     "type": "root"
