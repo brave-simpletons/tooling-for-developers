@@ -53,7 +53,7 @@ Because you are using scoop, the installation of ALL the apps will be easy. Foll
 - PowerShell 7 : The successor to PowerShell 5 shell
 - Posh-Git : Git auto completion in PowerShell
 - Oh-My-Posh : Prompt theme engine
-- ~Sudo : To force elevated privilege~ [obsolete since nerd-fonts now can be installed per user]
+- ~Sudo : To force elevated privilege~ [obsolete: now nerd-fonts can be installed per user]
 - Cascadia-Code fonts
 
 ```powershell
@@ -92,17 +92,28 @@ At the end of the script execution, it should ask some manual actions. Do to so:
 
 Reload the PowerShell Profile by launching a new `pwsh.exe` instance or reload the profile in an active PowerShell session using `. $PROFILE`.
 
-Now PowerShell should have some color... But with weird characters. Now, it's times to try something if you use [VsCode](#enabling-powershell-7-in-vscode) :wink:. If not jump to [Windows-Terminal](#enabling-powershell-7-in-windows-terminal)
+Now PowerShell should have some color... But with weird characters. It will be necessary to do some extra steps for:
+
+- [Windows-Terminal](#enabling-powershell-7-in-windows-terminal)
+- [VsCode](#enabling-powershell-7-in-vscode)
 
 ### Enabling PowerShell 7 in VsCode
 
 Open the `settings.json` file of the VSCode and change the values of these settings (if already configured):
 
 ```json
+    "powershell.powerShellAdditionalExePaths": [
+        {
+            "exePath": "[HARD-CODE-THE-PATH-TO-SCOOP]\\scoop\\apps\\pwsh\\current\\pwsh.exe",
+            "versionName": "Pwsh7"
+        }
+    ],
+    "powershell.powerShellDefaultVersion": "Pwsh7",
+
     "terminal.integrated.fontFamily": "CaskaydiaCove NF",
-    "terminal.integrated.defaultProfile.windows":"Pwsh",
+    "terminal.integrated.defaultProfile.windows":"Pwsh-Profile-Name-You-Want",
     "terminal.integrated.profiles.windows": {
-        "Pwsh": {
+        "Pwsh-Profile-Name-You-Want": {
             "path": "pwsh.exe",
             "args": [
                 "-NoLogo"
@@ -118,7 +129,7 @@ Open a new terminal in VSCode and Voilà!
 > You may need to close VSCode and reopen it if it was open when you installed "posh-git" with Scoop
 
 <!-- FIXME: Update this section with the new WT12 -->
-### Enabling PowerShell 7 in Windows-Terminal
+### Enabling PowerShell 7 in Windows Terminal
 
 Open Windows terminal from your Start Menu or from the command line, using `wt.exe`
 
@@ -126,7 +137,33 @@ Open Windows terminal from your Start Menu or from the command line, using `wt.e
 >
 > It may be possible that Windows Terminal will use PowerShell 7 as the default. So the next steps may have to be adjusted since it is written as if it wasn't available nor the default one.
 
-Then, open the settings in Windows Terminal (aka: "%UserProfile%\AppData\Local\Microsoft\Windows Terminal\settings.json") and add this in the `profiles.list[]` then save it:
+#### Version 1.12 or later
+
+With the new Windows Terminal versions (starting with 1.12), you can relatively easily add and modify profiles without going explicitly into the settings.json. The settings.json still exists and if you want to modify it directly, follow the steps like described in [earlier versions of windows terminal](#versions-earlier-to-112).
+
+1. Click on the plus sign and create a new one (you can also duplicate from an existing profile)
+2. Give it a name, `Rebel` for example :wink:
+3. Choose the Command line executable path (for pwsh, if you installed it with scoop you can only use `pwsh.exe`)
+4. Identify a starting directory (which could be `%UserProfile%` for example)
+5. For the icon, the predefined (within windows OS) for pwsh is `ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png`
+6. In the Appearance section:
+   1. In the "Text" subsection:
+      1. For the color scheme, the default `Campbell` works fine, but you can choose anyone that you want. You could event create a new "Color Scheme" for your Windows Terminal.
+      2. For the Fonts, choose `CaskaydiaCove NF`
+      3. For the font size we use `10` points
+   2. In the "Background image" subsection:
+      1. For the image path, choose the backgrounds available in `[this folder]\config\backgrounds\rebel.png` (copy and paste it where you want and use the new location)
+      2. For the stretch mode, choose `None`
+      3. For the alignment, choose `Bottom right`
+      4. For the opacity, `20%`can be a good start
+   3. In the "Window" subsection:
+      1. Use a Padding of `8`
+7. Save it
+8. Now the new `Rebel` profile will be available as a new profile in the windows terminal. You could even chose this profile as the Startup Default profile.
+
+#### Versions earlier to 1.12
+
+Open the Windows terminal settings in a text editor (aka: "%UserProfile%\AppData\Local\Microsoft\Windows Terminal\settings.json") and add this in the `profiles.list[]` then save it:
 
 ```json
       {
@@ -145,7 +182,7 @@ If you already have that `guid` in the Settings.json file, then only add the `fo
 
 The `guid` is the actual PowerShell 7 guid's value.
 
-#### Enforcing PowerShell 7 as the default shell
+##### Enforcing PowerShell 7 as the default shell
 
 If you want to always use PowerShell 7 as the default in Windows Terminal (which is optional :wink:), you can set it in the settings of Windows Terminal by replacing the value of `defaultProfile` with the value in the `guid`.
 
@@ -155,15 +192,15 @@ You should then have something like this:
   "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
 ```
 
-## Working with containers
+## Enhance productivity with some apps
 
 ### Install other applications
 
-If you are like us and working with Kubernetes, you could also install these apps:
+If you are like us and working with scoop, Docker and Kubernetes, you could also install these apps:
 
 ```powershell
 scoop update
-scoop install dockercompletion dos2unix helm kubectl kubectx kubens lens pskubectlcompletion
+scoop install dotnet-sdk dockercompletion dos2unix helm istioctl kubectl kubectx kubens lens pskubectlcompletion scoop-completion vscode
 ```
 
 > :memo: NOTE :memo:
@@ -172,16 +209,71 @@ scoop install dockercompletion dos2unix helm kubectl kubectx kubens lens pskubec
 
 ### Enabling these other applications in PowerShell 7
 
-Of course this is optional depending on each applications you installed, but you could add this information after the "posh-git" import in your PowerShell `$PROFILE`:
+Of course this is optional depending on each applications you installed, but you could have a pwsh `$PROFILE` that could be looking like this (feel free to only use what you really need):
 
 ```powershell
+$env:POSH_GIT_ENABLED=$true
+
+Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh)\themes\new-rebels.omp.json")
+
+# Alias
+Set-Alias -Name d -Value docker
+Set-Alias -Name h -Value helm
+Set-Alias -Name i -Value istioctl
 Set-Alias -Name k -Value kubectl
 Set-Alias -Name ktx -Value kubectx
 Set-Alias -Name kns -Value kubens
-Set-Alias -Name d -Value docker
 
+# Autocompletes
+Import-Module posh-git
+Import-Module scoop-completion
 Import-Module DockerCompletion
 Import-Module PSKubectlCompletion
+
+## Helm Autocomplete
+helm completion powershell | Out-String | Invoke-Expression
+
+## Istioclt Autocomplete
+istioctl completion powershell | Out-String | Invoke-Expression
+
+## PowerShell parameter completion shim for the dotnet CLI autocomplete
+Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
+     param($commandName, $wordToComplete, $cursorPosition)
+         dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+         }
+}
+
+## SCOOP update and cleanup
+function Start-ScoopUpdate {
+  Param(
+    [switch]
+    $Full
+  )
+
+  if($Full.IsPresent) {
+    scoop update * && scoop cleanup * && scoop cache rm * && scoop cache show
+  }
+  else {
+    scoop update && scoop status
+  }
+}
+
+Set-Alias -Name scoop-update -Value Start-ScoopUpdate
+
+## obtain the AD memberGroups of a user
+function Get-ADMemberOf($userName, $subset) {
+  if ([string]::IsNullOrWhiteSpace($subset)) {
+    return (Get-ADUser $userName –Properties MemberOf).MemberOf
+  }
+  return (Get-ADUser $userName –Properties MemberOf).MemberOf | Select-String "$subset"
+}
+function Get-ADUserName($userName) { (Get-ADUser -Filter {anr -eq $userName} | Where-Object Enabled -eq "True"
+function Get-ADUserInfo($userName) { Get-ADUser -Filter {anr -eq $userName} | Select Enabled, SamAccountName, Name, UserPrincipalName }
+
+Set-Alias -Name adgrp -Value Get-ADMemberOf
+Set-Alias -Name adusr -Value Get-ADUserName
+Set-Alias -Name adinfo -Value Get-ADUserInfo
 ```
 
 To open your profile, from `pwsh.exe`, simply use (or use your preferred EDI):
