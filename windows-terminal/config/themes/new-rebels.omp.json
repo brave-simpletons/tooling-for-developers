@@ -79,9 +79,30 @@
                 {
                     "background": "#007acc",
                     "background_templates": [
-                        "{{if ge .CurrentDate.Hour 18 }}#333333{{end}}",
-                        "{{if ge .CurrentDate.Hour 8 }}#007acc{{end}}",
-                        "{{if ge .CurrentDate.Hour 0 }}#333333{{end}}"
+                        "{{if ge .CurrentDate.Hour 23 }}#03293C{{end}}",
+                        "{{if ge .CurrentDate.Hour 22 }}#032D43{{end}}",
+                        "{{if ge .CurrentDate.Hour 21 }}#04324B{{end}}",
+                        "{{if ge .CurrentDate.Hour 20 }}#053752{{end}}",
+                        "{{if ge .CurrentDate.Hour 19 }}#2C4347{{end}}",
+                        "{{if ge .CurrentDate.Hour 18 }}#53503B{{end}}",
+                        "{{if ge .CurrentDate.Hour 17 }}#7A5C30{{end}}",
+                        "{{if ge .CurrentDate.Hour 16 }}#A16825{{end}}",
+                        "{{if ge .CurrentDate.Hour 15 }}#C87519{{end}}",
+                        "{{if ge .CurrentDate.Hour 14 }}#EF810E{{end}}",
+                        "{{if ge .CurrentDate.Hour 13 }}#ED9117{{end}}",
+                        "{{if ge .CurrentDate.Hour 12 }}#ECA020{{end}}",
+                        "{{if ge .CurrentDate.Hour 11 }}#EAB029{{end}}",
+                        "{{if ge .CurrentDate.Hour 10 }}#E8BF32{{end}}",
+                        "{{if ge .CurrentDate.Hour 9 }}#E7CF3B{{end}}",
+                        "{{if ge .CurrentDate.Hour 8 }}#E5DE44{{end}}",
+                        "{{if ge .CurrentDate.Hour 7 }}#BFBD3F{{end}}",
+                        "{{if ge .CurrentDate.Hour 6 }}#999D3A{{end}}",
+                        "{{if ge .CurrentDate.Hour 5 }}#737C35{{end}}",
+                        "{{if ge .CurrentDate.Hour 4 }}#4C5B30{{end}}",
+                        "{{if ge .CurrentDate.Hour 3 }}#263B2B{{end}}",
+                        "{{if ge .CurrentDate.Hour 2 }}#001A26{{end}}",
+                        "{{if ge .CurrentDate.Hour 1 }}#011F2D{{end}}",
+                        "{{if ge .CurrentDate.Hour 0 }}#022435{{end}}"
                     ],
                     "foreground": "#ffcccc",
                     "foreground_templates": [
