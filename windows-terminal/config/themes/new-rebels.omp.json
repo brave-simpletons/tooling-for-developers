@@ -329,7 +329,7 @@
                     "foreground": "#0C0C0C",
                     "powerline_symbol": "\ue0b0",
                     "properties": {
-                        "template": "<transparent> {{ or .Env.OHMYPOSH_SHELL_LOGO '\uf1d0' }}  \uf054</>"
+                        "template": "<transparent> {{ if .Env.OHMYPOSH_SHELL_LOGO }}{{ .Env.OHMYPOSH_SHELL_LOGO }}{{ else }}\uf1d0{{ end }}  \uf054</>"
                     },
                     "style": "powerline",
                     "type": "shell"
