@@ -119,7 +119,7 @@
                     "foreground": "#0c0c0c",
                     "powerline_symbol": "\ue0b0",
                     "properties": {
-                        "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }}@{{ .HostName }} "
+                        "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\" \"1\") }}{{ .UserName }}@{{ .HostName }}{{ else }}***@***{{ end }} "
                     },
                     "style": "powerline",
                     "type": "session"
@@ -220,7 +220,7 @@
                     "foreground": "#222222",
                     "powerline_symbol": "\ue0c4",
                     "properties": {
-                        "template": "{{ if .Error }}{{ .Error }}{{ else }} \uf1eb {{ .SSID }} {{ .Signal }}% {{ end }}"
+                        "template": "{{ if .Error }}{{ .Error }}{{ else }} \uf1eb {{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\" \"1\") }}{{ .SSID }}{{ else }}***{{ end}} {{ .Signal }}% {{ end }}"
                     },
                     "style": "powerline",
                     "type": "wifi"
@@ -329,7 +329,7 @@
                     "foreground": "#0C0C0C",
                     "powerline_symbol": "\ue0b0",
                     "properties": {
-                        "template": "<transparent> {{ if .Env.OHMYPOSH_SHELL_LOGO }}{{ .Env.OHMYPOSH_SHELL_LOGO }}{{ else }}\uf1d0{{ end }}  \uf054</>"
+                        "template": "<transparent> {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0\" }}  \uf054</>"
                     },
                     "style": "powerline",
                     "type": "shell"
