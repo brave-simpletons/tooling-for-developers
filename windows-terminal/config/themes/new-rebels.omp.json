@@ -326,10 +326,10 @@
                 },
                 {
                     "background": "#4075CC",
-                    "foreground": "#0C0C0C",
+                    "foreground": "transparent",
                     "powerline_symbol": "\ue0b0",
                     "properties": {
-                        "template": "<transparent> {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0\" }}  \uf054</>"
+                        "template": " {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0\" }}  \uf054"
                     },
                     "style": "powerline",
                     "type": "shell"
