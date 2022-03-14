@@ -30,10 +30,10 @@
                     "invert_powerline": true,
                     "powerline_symbol": "\ue0c5",
                     "properties": {
-                        "apikey": "ENTER-YOUR-API-KEY-FROM__https://ohmyposh.dev/docs/owm",
+                        "apikey": "<ENTER-YOUR-OWM-API-KEY__https://ohmyposh.dev/docs/owm>",
                         "cache_timeout": 15,
                         "http_timeout": 100,
-                        "location": "ENTER-YOUR-LOCATION__https://ohmyposh.dev/docs/owm",
+                        "location": "<ENTER-YOUR-OWM-LOCATION__https://ohmyposh.dev/docs/owm>",
                         "template": " {{.Weather}}  {{.Temperature}}{{.UnitIcon}} ",
                         "units": "metric"
                     },
@@ -119,7 +119,7 @@
                     "foreground": "#0c0c0c",
                     "powerline_symbol": "\ue0b0",
                     "properties": {
-                        "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\" \"1\") }}{{ .UserName }}@{{ .HostName }}{{ else }}***@***{{ end }} "
+                        "template": " {{ if .SSHSession }}\uf817 {{ end }}{{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\") }}{{ .UserName }}@{{ .HostName }}{{ else }}***@***{{ end }} "
                     },
                     "style": "powerline",
                     "type": "session"
@@ -220,7 +220,7 @@
                     "foreground": "#222222",
                     "powerline_symbol": "\ue0c4",
                     "properties": {
-                        "template": "{{ if .Error }}{{ .Error }}{{ else }} \uf1eb {{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\" \"1\") }}{{ .SSID }}{{ else }}***{{ end}} {{ .Signal }}% {{ end }}"
+                        "template": "{{ if .Error }}{{ .Error }}{{ else }} \uf1eb {{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\") }}{{ .SSID }}{{ else }}***{{ end}} {{ .Signal }}% {{ end }}"
                     },
                     "style": "powerline",
                     "type": "wifi"
