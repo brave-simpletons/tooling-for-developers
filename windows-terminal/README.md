@@ -145,7 +145,7 @@ With the new Windows Terminal versions (starting with 1.12), you can relatively 
 
 If you prefer a different "background logo" than the one we propose here, you can... Obviously :wink:
 
-A little trick though, if you want the logo to be aligned (right and bottom) with the `new-rebels.omp.json` theme, make sure that the png logo is 30px wider and 25px higher. So the logo should be aligned with the top left corner and kept 30px (right) and 25px (bottom) cleared.
+A little trick though, if you want the logo to be aligned (right and bottom) with the `new-rebels.omp.json` theme, make sure that the png logo is 32px wider and 25px higher. So the logo should be aligned with the top left corner and kept 32px (right) and 25px (bottom) cleared.
 
 #### Versions earlier to 1.12
 
