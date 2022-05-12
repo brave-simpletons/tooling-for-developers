@@ -52,6 +52,6 @@
     #        e.g. git cleanmerged master
     cleanmerged = !git switch $1 && git pull -p --tags && git delete-squashed $1 && :
 
-	# Alias for cleanmerged
-	# Usage: git tidy [branch name]
-	tidy = !git cleanmerged $1
+    # Alias for cleanmerged
+    # Usage: git tidy [branch name]
+    tidy = !git cleanmerged $1
