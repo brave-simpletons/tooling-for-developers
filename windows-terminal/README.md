@@ -269,7 +269,6 @@ scoop install dotnet-sdk dockercompletion dos2unix helm istioctl kubectl kubectx
 Of course this is optional depending on each applications you installed, but you could have a pwsh `$PROFILE` that could be looking like this (feel free to only use what you really need):
 
 ```powershell
-$env:POSH_GIT_ENABLED = $true
 # To use a specific char as a logo, use the character from its unicode ex :  => \uf1d0
 $env:OHMYPOSH_SHELL_LOGO = "" #  is the \uf1d0 (rebel) character
 # The "OHMYPOSH_SHOW_SENSITIVE_DATA" environment variable is used to enable "sensitive data" to be shown (useful to disabling it when presenting and still having a "kickass" shell)

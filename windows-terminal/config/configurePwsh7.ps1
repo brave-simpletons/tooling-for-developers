@@ -36,7 +36,6 @@ else
     Write-Host "It appears that you already have $PROFILE file..." -Foreground Green
     Write-Host
     Write-Host "Add these as first lines of your powershell profile (that will open using Notepad):"
-    Write-Host "`$env:POSH_GIT_ENABLED = `$true" -Foreground Yellow
     Write-Host "Invoke-Expression (oh-my-posh --init --shell pwsh --config ""`$(scoop prefix oh-my-posh)\$themeFilename"")" -Foreground Yellow
     Write-Host "Import-Module posh-git" -Foreground Yellow
     Write-Host
