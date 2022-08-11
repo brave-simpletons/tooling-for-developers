@@ -51,3 +51,11 @@
     # Usage: git cleanmerged [branch name]
     #        e.g. git cleanmerged master
     cleanmerged = !git switch $1 && git pull -p --tags && git delete-squashed $1 && :
+
+    # Alias for cleanmerged
+    # Usage: git tidy [branch name]
+    tidy = !git cleanmerged $1
+    
+    # Pushes current branch history up to the specified commit hash
+    # Usage: git pushupto [commit hash]
+    pushupto = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git push origin $1:refs/heads/$CURRENT_BRANCH && :
