@@ -1,9 +1,16 @@
 [http]
     sslBackend = schannel
+    sslVerify = true
     sslCAInfo = ~/scoop/apps/git/current/mingw64/ssl/certs/ca-bundle.crt
 [credential]
-    helper = manager
+    helper = manager-core
     useHttpPath = true
+[fetch]
+    prune = true
+[pull]
+    rebase = true
+[core]
+    longpaths = true
 [alias]
     # Debug git commands.
     # Usage: git debug [other git command]
@@ -55,7 +62,7 @@
     # Alias for cleanmerged
     # Usage: git tidy [branch name]
     tidy = !git cleanmerged $1
-    
+
     # Pushes current branch history up to the specified commit hash
     # Usage: git pushupto [commit hash]
     pushupto = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git push origin $1:refs/heads/$CURRENT_BRANCH && :
