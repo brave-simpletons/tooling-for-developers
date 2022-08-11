@@ -12,7 +12,6 @@ But, you may want to turn it into WOW.
 
 Here, we will describe all the steps to make your terminal look astonishingly `WOW` so that your coworkers will be jealous how much you can `Shell Like a Badass` :sunglasses:
 
-<!-- FIXME: Update the image -->
 ![WT Like a badass Rebels](images/wt-like-badass-rebels.png)
 
 This is our own theme named `new-rebels.omp.json`
