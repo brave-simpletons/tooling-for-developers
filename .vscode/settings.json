@@ -1,4 +1,9 @@
 {
+    "peacock.color": "#5a0247",
+    "peacock.affectActivityBar": false,
+    "peacock.affectTabActiveBorder": true,
+    "peacock.affectStatusAndTitleBorders": false,
+    "peacock.affectDebuggingStatusBar": false,
     "workbench.colorCustomizations": {
         "statusBar.background": "#5a0247",
         "statusBar.foreground": "#e7e7e7",
@@ -8,16 +13,11 @@
         "titleBar.inactiveBackground": "#5a024799",
         "titleBar.inactiveForeground": "#e7e7e799",
         "tab.activeBorder": "#8c036e",
-        "editorGroup.border": "#8c036e",
-        "panel.border": "#8c036e",
-        "sideBar.border": "#8c036e"
+        "sash.hoverBorder": "#8c036e",
+        "statusBarItem.remoteBackground": "#5a0247",
+        "statusBarItem.remoteForeground": "#e7e7e7"
     },
-    "peacock.color": "#5a0247",
-    "peacock.affectActivityBar": false,
-    "peacock.affectAccentBorders": true,
-    "peacock.affectTabActiveBorder": true,
-    "peacock.affectStatusAndTitleBorders": false,
-    "peacock.affectDebuggingStatusBar": false,
+
     "spellright.language": [
         "en"
     ],
@@ -26,5 +26,101 @@
         "latex",
         "plaintext",
         "powershell"
-    ]
+    ],
+
+    "todo-tree.general.statusBar": "tags",
+    "todo-tree.general.statusBarClickBehaviour": "reveal",
+    "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.filtering.ignoreGitSubmodules": true,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]",
+        "HOTFIX",
+        "FIX",
+        "FIXIT",
+        "BAD",
+        "TRASH"
+    ],
+    "todo-tree.general.tagGroups": {
+        "FIXME": ["FIXME","FIXIT","FIX"],
+        "XXX": ["XXX","BAD","TRASH"]
+    },
+    "todo-tree.tree.hideIconsWhenGroupedByTag": false,
+    "todo-tree.tree.hideTreeWhenEmpty": false,
+    "todo-tree.tree.groupedByTag": false,
+    "todo-tree.tree.expanded": true,
+    "todo-tree.tree.flat": false,
+    "todo-tree.tree.showCountsInTree": true,
+    "todo-tree.tree.tagsOnly": false,
+    "todo-tree.highlights.useColourScheme": true,
+    "todo-tree.highlights.backgroundColourScheme": [
+        "lightgreen",
+    ],
+    "todo-tree.highlights.foregroundColourScheme": [
+        "black"
+    ],
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "line",
+        "foreground": "red",
+        "background": "white",
+        "opacity": 50,
+        "iconColour": "blue",
+        "gutterIcon": true
+    },
+    "todo-tree.highlights.customHighlight": {
+        "BUG": {
+            "icon": "bug",
+            "iconColour": "firebrick",
+            "background": "firebrick"
+        },
+        "HACK": {
+            "icon": "rocket",
+            "iconColour": "deeppink",
+            "background": "deeppink"
+        },
+        "FIXME": {
+            "icon": "tools",
+            "iconColour": "green",
+            "background": "green"
+        },
+        "HOTFIX": {
+            "icon": "flame",
+            "iconColour": "orange",
+            "background": "orange"
+        },
+        "TODO": {
+            "icon": "checklist",
+            "iconColour": "deepskyblue",
+            "background": "deepskyblue"
+        },
+        "XXX": {
+            "icon": "trash",
+            "iconColour": "olive",
+            "background": "olive"
+        },
+        "[ ]": {
+            "icon": "check",
+            "iconColour": "lightpink",
+            "background": "lightpink",
+            "foreground": "red",
+            "type": "tag"
+        },
+        "[x]": {
+            "icon": "check-circle",
+            "iconColour": "palegreen",
+            "background": "palegreen",
+            "foreground": "green",
+            "type": "tag",
+            "hideFromStatusBar": true,
+            "hideFromTree": true
+        }
+    }
+
 }
