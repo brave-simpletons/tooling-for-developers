@@ -66,3 +66,7 @@
     # Pushes current branch history up to the specified commit hash
     # Usage: git pushupto [commit hash]
     pushupto = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git push origin $1:refs/heads/$CURRENT_BRANCH && :
+    
+    # Switch back to previous branch
+    # Usage: git back
+    back = !git switch - && :
