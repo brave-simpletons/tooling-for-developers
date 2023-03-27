@@ -362,8 +362,8 @@
                     "powerline_symbol": "\ue0b0",
                     "style": "powerline",
                     "foreground_templates": [
-                        "{{if eq .Name \"bash\" }}#00ff00{{end}}",
-                        "{{if eq .Name \"zsh\" }}#0000ff{{end}}",
+                        "{{if eq .Name \"bash\" }}#200000{{end}}",
+                        "{{if eq .Name \"zsh\" }}#f6f6f6{{end}}",
                         "{{if eq .Name \"pwsh\" }}#ff7979{{end}}"
                     ],
                     "background_templates": [
@@ -378,15 +378,11 @@
                     "foreground": "#4075CC",
                     "style": "plain",
                     "foreground_templates": [
-                        "{{if eq .Shell \"bash\" }}#228b22{{end}}",
-                        "{{if eq .Shell \"zsh\" }}#6686DB{{end}}",
-                        "{{if eq .Shell \"pwsh\" }}#52205f{{end}}"
+                        "{{if eq .Shell \"bash\" }}#4da24d{{end}}",
+                        "{{if eq .Shell \"zsh\" }}#6686db{{end}}",
+                        "{{if eq .Shell \"pwsh\" }}#9b7da2{{end}}"
                     ],
-                    "background_templates": [
-                        "{{if eq .Name \"bash\" }}#00ff00{{end}}",
-                        "{{if eq .Name \"zsh\" }}#0000ff{{end}}",
-                        "{{if eq .Name \"pwsh\" }}#ff0000{{end}}"
-                    ],
+                    "background": "transparent",
                     "template": "\ue285\uf641",
                     "type": "text"
                 }
