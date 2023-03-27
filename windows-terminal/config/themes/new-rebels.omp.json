@@ -344,38 +344,50 @@
                     "foreground": "#cccc00",
                     "invert_powerline": true,
                     "powerline_symbol": "\ue0b2",
-                    "properties": {
-                        "template": " \uf21b "
-                    },
                     "style": "powerline",
+                    "template": " \uf21b ",
                     "type": "root"
                 },
                 {
                     "background": "#ff8080",
                     "foreground": "#ffffff",
                     "powerline_symbol": "\ue0b0",
-                    "properties": {
-                        "template": " \ue20f {{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}\uf42e{{ end }} "
-                    },
                     "style": "powerline",
+                    "template": " \ue20f {{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}\uf42e{{ end }} ",
                     "type": "exit"
                 },
                 {
                     "background": "#4075CC",
                     "foreground": "transparent",
                     "powerline_symbol": "\ue0b0",
-                    "properties": {
-                        "template": " {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0\" }}  \uf054"
-                    },
                     "style": "powerline",
+                    "foreground_templates": [
+                        "{{if eq .Name \"bash\" }}#00ff00{{end}}",
+                        "{{if eq .Name \"zsh\" }}#0000ff{{end}}",
+                        "{{if eq .Name \"pwsh\" }}#ff7979{{end}}"
+                    ],
+                    "background_templates": [
+                        "{{if eq .Name \"bash\" }}#228b22{{end}}",
+                        "{{if eq .Name \"zsh\" }}#4169e1{{end}}",
+                        "{{if eq .Name \"pwsh\" }}#52205f{{end}}"
+                    ],
+                    "template": " {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0\" }}  \uf054",
                     "type": "shell"
                 },
                 {
                     "foreground": "#4075CC",
-                    "properties": {
-                        "template": "\ue285\uf641"
-                    },
                     "style": "plain",
+                    "foreground_templates": [
+                        "{{if eq .Shell \"bash\" }}#228b22{{end}}",
+                        "{{if eq .Shell \"zsh\" }}#6686DB{{end}}",
+                        "{{if eq .Shell \"pwsh\" }}#52205f{{end}}"
+                    ],
+                    "background_templates": [
+                        "{{if eq .Name \"bash\" }}#00ff00{{end}}",
+                        "{{if eq .Name \"zsh\" }}#0000ff{{end}}",
+                        "{{if eq .Name \"pwsh\" }}#ff0000{{end}}"
+                    ],
+                    "template": "\ue285\uf641",
                     "type": "text"
                 }
             ],
