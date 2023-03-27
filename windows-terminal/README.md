@@ -16,6 +16,10 @@ Here, we will describe all the steps to make your terminal look astonishingly `W
 
 This is our own theme named `new-rebels.omp.json`
 
+> :memo: NOTE :memo:
+>
+> This theme now support shell coloration for BASH (green), ZSH (blue) and PWSH(purple). This way you could even appreciate it in other Shells and/or Platforms (even in a "devcontainer").
+
 ## Installation Instructions
 
 > :warning: WARNING :warning:

@@ -15,7 +15,8 @@
         "tab.activeBorder": "#8c036e",
         "sash.hoverBorder": "#8c036e",
         "statusBarItem.remoteBackground": "#5a0247",
-        "statusBarItem.remoteForeground": "#e7e7e7"
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799"
     },
 
     "spellright.language": [
