@@ -66,10 +66,10 @@
                     "invert_powerline": true,
                     "powerline_symbol": "\ue0c5",
                     "properties": {
-                        "apikey": "<ENTER-YOUR-OWM-API-KEY__https://ohmyposh.dev/docs/owm>",
+                        "apikey": "<ENTER-YOUR-OWM-API-KEY__https://ohmyposh.dev/docs/segments/owm>",
                         "cache_timeout": 15,
                         "http_timeout": 100,
-                        "location": "<ENTER-YOUR-OWM-LOCATION__https://ohmyposh.dev/docs/owm>",
+                        "location": "<ENTER-YOUR-OWM-LOCATION__https://ohmyposh.dev/docs/segments/owm>",
                         "template": " {{.Weather}}  {{.Temperature}}{{.UnitIcon}} ",
                         "units": "metric"
                     },
