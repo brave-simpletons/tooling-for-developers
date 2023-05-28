@@ -24,8 +24,32 @@
           "style": "powerline",
           "powerline_symbol": "\ue0b4",
           "foreground": "#222222",
-          "background": "#DD6611",
-          "template": "{{ if eq .Type \"wifi\"}} \uf1eb {{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\") }}{{ .SSID }}{{ else }}***{{ end}} {{ end }}"
+          "background": "#00b4d8",
+          "template": "{{ if eq .Type \"wifi\"}} \uf1eb {{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\") }}{{ .SSID }}{{ else }}***{{ end }}{{ end }}"
+        },
+        {
+          "type": "connection",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b4",
+          "foreground": "#222222",
+          "background": "#41ab5d",
+          "template": "{{ if eq .Type \"ethernet\"}} \udb80\ude00 {{ end }}"
+        },
+        {
+          "type": "connection",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b4",
+          "foreground": "#222222",
+          "background": "#ff9f1a",
+          "template": "{{ if eq .Type \"cellular\"}} \udb82\udcbd {{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\") }}{{ .Name }}{{ else }}***{{ end }}{{ end }}"
+        },
+        {
+          "type": "connection",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b4",
+          "foreground": "#222222",
+          "background": "#ff6384",
+          "template": "{{ if eq .Type \"bluetooth\"}} \udb80\udcb1 {{ if has .Env.OHMYPOSH_SHOW_SENSITIVE_DATA (list \"True\" \"TRUE\" \"true\") }}{{ .Name }}{{ else }}***{{ end }}{{ end }}"
         },
         {
           "type": "battery",
@@ -314,7 +338,6 @@
         {
           "type": "project",
           "style": "diamond",
-          "powerline_symbol": "\ue0b0",
           "leading_diamond": "<f><#ffeb3b,transparent>\ue0b1</></f>",
           "trailing_diamond": "<f><#ffeb3b,transparent>\ue0b3</></f>",
           "foreground": "#ffeb3b",
@@ -333,72 +356,72 @@
       "segments": [
         {
           "type": "dotnet",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#F7F7F7",
           "background": "#4E2ACD",
           "template": "  \ue77f {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "flutter",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#ffffff",
           "background": "#06A4CE",
           "template": " <b><i>\ue64c F</i></b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "go",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#F2F2F2",
           "background": "#29BEB0",
           "template": "  \udb81\udfd3 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "java",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#EC2025",
           "background": "#0D8AC7",
           "template": "  \ue738 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "kotlin",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#ffffff",
           "background": "#906cff",
           "template": " \ue634 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "node",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#303030",
           "background": "#68A063",
           "template": "  \ue718 {{ if .Error }}{{ .Error }}{{ else }}{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}{{ end }} "
         },
         {
           "type": "php",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#232531",
           "background": "#8993BE",
           "template": "  \ue73d {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "python",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#FFE873",
           "background": "#4B8BBE",
           "template": "  \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }}{{ end }}{{ .Full }}{{ end }} ",
@@ -408,27 +431,27 @@
         },
         {
           "type": "r",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#0000ff",
           "background": "#bbbbff",
           "template": " \ue68a {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "ruby",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#ffffff",
           "background": "#4063D8",
           "template": " \ue791 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
         },
         {
           "type": "rust",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b2",
-          "invert_powerline": true,
+          "style": "diamond",
+          "leading_diamond": "\ue0c7",
+          "trailing_diamond": "\ue0c6",
           "foreground": "#193549",
           "background": "#99908a",
           "template": " \ue68b {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
@@ -472,7 +495,7 @@
             "{{if eq .Name \"zsh\" }}#4169e1{{end}}",
             "{{if eq .Name \"pwsh\" }}#52205f{{end}}"
           ],
-          "template": " {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0 \ue633\" }} <f>\uf054</f>"
+          "template": " {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0 \udb85\uddc3\" }} <f>\uf054</f>"
         },
         {
           "type": "text",
@@ -504,6 +527,6 @@
       "{{if eq .Shell \"zsh\" }}#4169e1{{end}}",
       "{{if eq .Shell \"pwsh\" }}#52205f{{end}}"
     ],
-    "template": "\n{{ if .Segments.Time.CurrentDate }}<#ebcc34,#0b4e7a> {{ .Segments.Time.CurrentDate | date .Segments.Time.Format }} </><#0b4e7a,transparent>\ue0b0</>\n{{ end }}{{ if .Segments.Git.Upstream }}<#193549,#95ffa4> {{ .Segments.Git.UpstreamIcon }} {{ .Segments.Git.HEAD }} </><#95ffa4,transparent>\ue0b0</>\n{{ end }}<#100e23,#91ddff> {{ .PWD }} </><#91ddff,#52205f>\ue0b0</> {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0 \ue633\" }} \ue285<{{if eq .Shell \"bash\" }}#228b22{{else if eq .Shell \"zsh\" }}#4169e1{{else if eq .Shell \"pwsh\" }}#52205f{{end}},transparent>\ue0b0</><{{if eq .Shell \"bash\" }}#4da24d{{else if eq .Shell \"zsh\" }}#6686db{{else if eq .Shell \"pwsh\" }}#9b7da2{{end}},transparent>\ue285\udb80\udd42 </>"
+    "template": "\n{{ if .Segments.Time.CurrentDate }}<#ebcc34,#0b4e7a> {{ .Segments.Time.CurrentDate | date .Segments.Time.Format }} </><#0b4e7a,transparent>\ue0b0</>\n{{ end }}{{ if .Segments.Git.Upstream }}<#193549,#95ffa4> {{ url .Segments.Git.UpstreamIcon .Segments.Git.UpstreamURL }} {{ url .Segments.Git.HEAD .Segments.Git.UpstreamURL }} </><#95ffa4,transparent>\ue0b0</>\n{{ end }}<#100e23,#91ddff> {{ path .PWD .Segments.Path.Location }} </><#91ddff,#52205f>\ue0b0</> {{ or .Env.OHMYPOSH_SHELL_LOGO \"\uf1d0 \udb85\uddc3\" }} \ue285<{{if eq .Shell \"bash\" }}#228b22{{else if eq .Shell \"zsh\" }}#4169e1{{else if eq .Shell \"pwsh\" }}#52205f{{end}},transparent>\ue0b0</><{{if eq .Shell \"bash\" }}#4da24d{{else if eq .Shell \"zsh\" }}#6686db{{else if eq .Shell \"pwsh\" }}#9b7da2{{end}},transparent>\ue285\udb80\udd42 </>"
   }
 }
