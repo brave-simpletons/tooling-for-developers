@@ -14,11 +14,19 @@ Here, we will describe all the steps to make your terminal look astonishingly `W
 
 ![WT Like a badass Rebels](images/wt-like-badass-rebels.png)
 
-This is our own theme named `new-rebels.omp.json`
+This is our two own themes named `new-rebels.omp.json` :warning: and our newly `rebel-unikorn.omp.json` :warning:
 
 > :memo: NOTE :memo:
 >
-> This theme now support shell coloration for BASH (green), ZSH (blue) and PWSH(purple). This way you could even appreciate it in other Shells and/or Platforms (even in a "devcontainer").
+> These themes support shell coloration for BASH (green), ZSH (blue) and PWSH(purple). This way you could even appreciate it in other Shells and/or Platforms (even in a "devcontainer").
+
+> :warning: WARNING :warning:
+>
+> The `new-rebels` theme supports Oh-My-Posh v14 and prior with Nerd-Fonts v2
+>
+> The `rebel-unikorn` theme support Oh-My-Posh v16+ with Nerd-Fonts v3
+>
+> So we do not have supports for Oh-My-Posh v15
 
 ## Installation Instructions
 
@@ -58,7 +66,7 @@ Because you are using scoop, the installation of ALL the apps will be easy. Foll
 - PowerShell 7 : The successor to PowerShell 5 shell
 - Posh-Git : Git auto completion in PowerShell
 - Oh-My-Posh : Prompt theme engine
-- ~Sudo : To force elevated privilege~ [obsolete: now nerd-fonts can be installed per user]
+- ~Sudo : To force elevated privilege~ [obsolete: now nerd-fonts can be installed per user (unless you use Windows 11)]
 - Cascadia-Code fonts
 
 ```powershell
@@ -90,7 +98,7 @@ At the end of the script execution, it should ask some manual actions. Do to so,
 
 #### Manual setups
 
-From the windows-terminal directory of this repository, copy the file `.\themes\new-rebels.omp.json` to the oh-my-posh themes' directory. If you are using scoop, it's usually in `$env:userprofile\scoop\persist\oh-my-posh\themes`. But you can also use this command to know where to copy it: `scoop prefix oh-my-posh` :wink:
+From the windows-terminal directory of this repository, copy the file `.\themes\new-rebels.omp.json` or `.\themes\rebel-unikorn.omp.json`to the oh-my-posh themes' directory. If you are using scoop, it's usually in `$env:userprofile\scoop\persist\oh-my-posh\themes`. But you can also use this command to know where to copy it: `scoop prefix oh-my-posh` :wink:
 
 Now, continue with the [Steps after the manual or scripted setup](#steps-after-the-manual-or-scripted-setup)
 
@@ -132,10 +140,10 @@ With the new Windows Terminal versions (starting with 1.12), you can relatively 
 6. In the Appearance section:
    1. In the "Text" subsection:
       1. For the color scheme, the default `Campbell` works fine, but you can choose anyone that you want. You could event create a new "Color Scheme" for your Windows Terminal.
-      2. For the Fonts, choose `CaskaydiaCove NF`
+      2. For the Fonts, choose `CaskaydiaCove NF` (for Nerd Fonts v2) or `CaskaydiaCove Nerd Font` (for Nerd Fonts v3)
       3. For the font size we use `10` points
    2. In the "Background image" subsection:
-      1. For the image path, choose the backgrounds available in `[this folder]\config\backgrounds\rebel.png` (copy and paste it where you want and use the new location)
+      1. For the image path, choose the backgrounds available in `[this folder]\config\backgrounds\rebel.png` or `[this folder]\config\backgrounds\rebel-unikorn.png` (copy and paste it where you want and use the new location)
       2. For the stretch mode, choose `None`
       3. For the alignment, choose `Bottom right`
       4. For the opacity, `20%`can be a good start
@@ -148,7 +156,7 @@ With the new Windows Terminal versions (starting with 1.12), you can relatively 
 
 If you prefer a different "background logo" than the one we propose here, you can... Obviously :wink:
 
-A little trick though, if you want the logo to be aligned (right and bottom) with the `new-rebels.omp.json` theme, make sure that the png logo is 27px wider and 80px higher. So the logo should be aligned with the top left corner and kept 27px (right) and 80px (bottom) cleared and transparent.
+A little trick though, if you want the logo to be aligned (right and bottom) with the `new-rebels.omp.json` or `rebel-unikorn.omp.json` theme, make sure that the png logo is 27px wider and 80px higher. So the logo should be aligned with the top left corner and kept 27px (right) and 80px (bottom) cleared and transparent.
 
 #### Versions earlier to 1.12
 
@@ -194,7 +202,8 @@ Open the `settings.json` file of the VSCode and change the values of these setti
     ],
     "powershell.powerShellDefaultVersion": "Pwsh7",
 
-    "terminal.integrated.fontFamily": "CaskaydiaCove NF",
+    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
+    // "terminal.integrated.fontFamily": "CaskaydiaCove NF",
     "terminal.integrated.defaultProfile.windows":"Pwsh-Profile-Name-You-Want",
     "terminal.integrated.profiles.windows": {
         "Pwsh-Profile-Name-You-Want": {
@@ -222,27 +231,32 @@ Open a new terminal in VSCode and Voilà!
 >
 > You may need to close VSCode and reopen it if it was open when you installed "posh-git" with Scoop
 
-## Personalize the `new-rebels` theme
+## Personalize the `new-rebels` and `rebel-unikorn` theme
 
 You may require to do some customization of the theme.
 
 ### Customize the Weather segment
 
-If you want the weather segment, you must use your own API Key to Open Weather Map. You can read from the Oh-My-Posh documentation on the [Open Weather Map](https://ohmyposh.dev/docs/owm).
+If you want the weather segment, you must use your own API Key to Open Weather Map. You can read from the Oh-My-Posh documentation on the [Open Weather Map](https://ohmyposh.dev/docs/segments/owm).
 
-In the `new-rebels.omp.json` theme, you will have to replace the two values started with `<ENTER-YOUR-OWM-` with your own API Key and location.
+In the `new-rebels.omp.json` or `rebel-unikorn.omp.json` theme, you will have to replace the two values started with `<ENTER-YOUR-OWM-` with your own API Key and location.
 
 ### Customize the shell logo
 
-By default, we use the \uf1d0 charater which is the rebel logo. If you want a specific one (or a text), well you can "rebel" !
+By default:
+
+- `new-rebels` use the `\uf1d0` charater which is the rebel logo.
+- `rebel-unikorn` use the `\uf1d0 \ue633` charater which is the rebel logo followed by a unicorn.
+
+If you want a specific one (or a text), well you can "rebel"!
 
 You can define what you want to see using the `$env:OHMYPOSH_SHELL_LOGO` and assign it some text or a specific character.
 
 > :warning: WARNING :warning:
 >
-> You won't be able, for example, to use the same "\uf1d1" text as in the theme template since it won't be translated to nerd-fonts. You must copy/paste the character that you want and it may looks like a weird or `` character.
+> In the environment variable, you won't be able to use the text representation character like this `\uf1d1` for the theme template since it won't be translated to nerd-fonts. You must copy/paste the character that you want and it may looks like a weird or `` character.
 >
-> If you want to identify and copy the exact character that you want from CascadiaCode-NF font, you can use `fontforge`, also in scoop (from the bucket "extras").
+> If you want to identify and copy the exact character that you want from CascadiaCode-NF font, you can use `fontforge`, also in scoop (from the bucket "extras") or using the [Nerd Fonts Cheat Sheet](https://www.nerdfonts.com/cheat-sheet).
 
 ### Enabling/Disabling sensitive data to be shown
 
@@ -277,7 +291,8 @@ $env:OHMYPOSH_SHELL_LOGO = "" #  is the \uf1d0 (rebel) character
 # The "OHMYPOSH_SHOW_SENSITIVE_DATA" environment variable is used to enable "sensitive data" to be shown (useful to disabling it when presenting and still having a "kickass" shell)
 $env:OHMYPOSH_SHOW_SENSITIVE_DATA = $true # possible values to enabling sensitive data to be shown : [$true, "True", "true"] any other values will hide the sensitive data
 
-Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh)\themes\new-rebels.omp.json")
+Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh)\themes\rebel-unikorn.omp.json")
+# Invoke-Expression (oh-my-posh --init --shell pwsh --config "$(scoop prefix oh-my-posh)\themes\new-rebels.omp.json")
 
 # Alias
 Set-Alias -Name d -Value docker
