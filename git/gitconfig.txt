@@ -17,6 +17,11 @@
     #        e.g. git debug status
     debug = !GIT_TRACE=1 git
 
+    # Switches to and pulls given branch.
+    # Usage: git pullitch [other branch name]
+    #        e.g. git pullitch main
+    pullitch = !git switch $1 && git pull && :
+
     # Switches to and pulls given branch, switches back to the current branch and merges from given branch.
     # Usage: git quickmerge [other branch name]
     #        e.g. git quickmerge main
@@ -26,11 +31,6 @@
     # Usage: git quickrebase [other branch name]
     #        e.g. git quickrebase main
     quickrebase = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git rebase $1 && :
-
-    # Switches to and pulls given branch.
-    # Usage: git pullitch [other branch name]
-    #        e.g. git pullitch main
-    pullitch = !git switch $1 && git pull && :
 
     # Deletes branches squashed into given branch.
     # Usage: git delete-squashed [branch name (default: main)]
