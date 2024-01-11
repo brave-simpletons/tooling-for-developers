@@ -39,7 +39,12 @@
     #        e.g. git quickrebase feature/foo
     quickrebase = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git rebase $targetBranch; }; f"
 
-    # TODO: Add delete-merged alias
+    # Deletes branches merged into given branch.
+    # Partially based on https://github.com/not-an-aardvark/git-delete-squashed
+    # Usage: git delete-merged [branch name (default: main)]
+    #        e.g. git delete-merged
+    #        e.g. git delete-merged feature/foo
+    delete-merged = "!f() { local targetBranch=${1:-main} && git checkout -q $targetBranch && git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d; }; f"
 
     # Deletes branches squashed into given branch.
     # Based on https://github.com/not-an-aardvark/git-delete-squashed
