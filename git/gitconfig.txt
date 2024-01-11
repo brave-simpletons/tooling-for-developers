@@ -60,7 +60,8 @@
 
     # Change last commit's message.
     # Usage: git reword <new message>
-    reword = !git commit --amend -m \"$1\" && :
+    #        e.g. git reword foo
+    reword = "!f() { local newMessage=$1 && git commit --amend -m \"$newMessage\"; }; f"
 
     # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch.
     # Usage: git cleanmerged [branch name]
