@@ -33,12 +33,11 @@
     #        e.g. git quickmerge feature/foo
     quickmerge = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git merge --no-ff $targetBranch; }; f"
 
-    # TODO: Use git back
-    # Switches to and pulls given branch, switches back to the current branch and rebases on top of given branch.
+    # Switches to and pulls given branch, switches back to the original branch and rebases on top of given branch.
     # Usage: git quickrebase [branch name (default: main)]
     #        e.g. git quickrebase
     #        e.g. git quickrebase feature/foo
-    quickrebase = "!f() { local targetBranch=${1:-main} && local currentBranch=$(git rev-parse --abbrev-ref HEAD) && git pullitch $targetBranch && git switch $currentBranch && git rebase $targetBranch; }; f"
+    quickrebase = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git rebase $targetBranch; }; f"
 
     # TODO: Add delete-merged alias
 
