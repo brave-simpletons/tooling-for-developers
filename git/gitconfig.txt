@@ -64,13 +64,13 @@
     reword = "!f() { local newMessage=$1 && git commit --amend -m \"$newMessage\"; }; f"
 
     # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch.
-    # Usage: git cleanmerged [branch name]
-    #        e.g. git cleanmerged main
-    cleanmerged = !git switch $1 && git pull -p --tags && git delete-squashed $1 && :
+    # Usage: git cleansquashed [branch name]
+    #        e.g. git cleansquashed main
+    cleansquashed = !git switch $1 && git pull -p --tags && git delete-squashed $1 && :
 
-    # Alias for cleanmerged.
+    # Alias for cleansquashed.
     # Usage: git tidy [branch name]
-    tidy = !git cleanmerged $1
+    tidy = !git cleansquashed $1
 
     # Remove all dangling commits (including those still reachable from stashes and other reflogs).
     # Based on https://stackoverflow.com/a/4528593
