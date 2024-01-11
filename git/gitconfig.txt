@@ -48,36 +48,36 @@
     #        e.g. git rename foo bar
     rename = "!f() { local fromPath=$1 && local toPath=$2 && git mv \"$fromPath\" \"${fromPath}_TMP\" && git mv \"${fromPath}_TMP\" \"$toPath\"; }; f"
 
-    # Append staged changes to last commit without editing commit message
+    # Append staged changes to last commit without editing commit message.
     # Usage: git append
     append = "!f() { git commit --amend --no-edit; }; f"
 
-    # Shortens the given commit hash
+    # Shortens the given commit hash.
     # Usage: git shorten [commit hash]
     shorten = !git rev-parse --short $1 && :
 
-    # Change last commit's message
+    # Change last commit's message.
     # Usage: git reword "[new message]"
     reword = !git commit --amend -m \"$1\" && :
 
-    # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch
+    # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch.
     # Usage: git cleanmerged [branch name]
     #        e.g. git cleanmerged main
     cleanmerged = !git switch $1 && git pull -p --tags && git delete-squashed $1 && :
 
-    # Alias for cleanmerged
+    # Alias for cleanmerged.
     # Usage: git tidy [branch name]
     tidy = !git cleanmerged $1
 
-    # Remove all dangling commits (including those still reachable from stashes and other reflogs)
+    # Remove all dangling commits (including those still reachable from stashes and other reflogs).
     # Based on https://stackoverflow.com/a/4528593
     # Usage: git spick-and-span
     spick-and-span = !git reflog expire --expire-unreachable=now --all && git gc --prune=now && :
 
-    # Pushes current branch history up to the specified commit hash
+    # Pushes current branch history up to the specified commit hash.
     # Usage: git pushupto [commit hash]
     pushupto = !currentBranch=$(git rev-parse --abbrev-ref HEAD) && git push origin $1:refs/heads/$currentBranch && :
 
-    # Switch back to previous branch
+    # Switch back to previous branch.
     # Usage: git back
     back = !git switch - && :
