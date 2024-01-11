@@ -56,7 +56,7 @@
 
     # Shortens the given commit hash.
     # Usage: git shorten <commit hash>
-    shorten = !git rev-parse --short $1 && :
+    shorten = "!f() { local commitHash=$1 && git rev-parse --short $commitHash; }; f"
 
     # Change last commit's message.
     # Usage: git reword <new message>
