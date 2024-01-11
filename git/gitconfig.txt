@@ -80,7 +80,7 @@
     # Remove all dangling commits (including those still reachable from stashes and other reflogs).
     # Based on https://stackoverflow.com/a/4528593
     # Usage: git spick-and-span
-    spick-and-span = !git reflog expire --expire-unreachable=now --all && git gc --prune=now && :
+    spick-and-span = "!f() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }; f"
 
     # Pushes current branch history up to the specified commit hash.
     # Usage: git pushupto <commit hash>
