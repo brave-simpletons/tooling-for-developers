@@ -28,10 +28,10 @@
     pullitch = "!f() { local targetBranch=${1:-main} && git switch $targetBranch && git pull; }; f"
 
     # Switches to and pulls given branch, switches back to the original branch and merges from given branch.
-    # Usage: git quickmerge [branch name (default: main)]
-    #        e.g. git quickmerge
-    #        e.g. git quickmerge feature/foo
-    quickmerge = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git merge --no-ff $targetBranch; }; f"
+    # Usage: git quick-merge [branch name (default: main)]
+    #        e.g. git quick-merge
+    #        e.g. git quick-merge feature/foo
+    quick-merge = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git merge --no-ff $targetBranch; }; f"
 
     # Switches to and pulls given branch, switches back to the original branch and rebases on top of given branch.
     # Usage: git quickrebase [branch name (default: main)]
