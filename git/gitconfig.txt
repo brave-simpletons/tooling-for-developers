@@ -19,7 +19,8 @@
 
     # Switches to and pulls given branch.
     # Usage: git pullitch [branch name (default: main)]
-    #        e.g. git pullitch main
+    #        e.g. git pullitch
+    #        e.g. git pullitch feature/foo
     pullitch = "!f() { local targetBranch=${1:-main} && git switch $targetBranch && git pull; }; f"
 
     # Switches to and pulls given branch, switches back to the current branch and merges from given branch.
@@ -34,6 +35,8 @@
 
     # Deletes branches squashed into given branch.
     # Usage: git delete-squashed [branch name (default: main)]
+    #        e.g. git delete-squashed
+    #        e.g. git delete-squashed feature/foo
     # Based on https://github.com/not-an-aardvark/git-delete-squashed
     delete-squashed = "!f() { local targetBranch=${1:-main} && git checkout -q $targetBranch && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
 
