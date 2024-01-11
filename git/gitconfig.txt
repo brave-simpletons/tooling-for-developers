@@ -50,7 +50,7 @@
 
     # Append staged changes to last commit without editing commit message
     # Usage: git append
-    append = !git commit --amend --no-edit && :
+    append = "!f() { git commit --amend --no-edit; }; f"
 
     # Shortens the given commit hash
     # Usage: git shorten [commit hash]
