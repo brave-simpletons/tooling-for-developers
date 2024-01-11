@@ -27,13 +27,13 @@
     # Usage: git quickmerge [branch name (default: main)]
     #        e.g. git quickmerge
     #        e.g. git quickmerge feature/foo
-    quickmerge = "!f() { local targetBranch=${1:-main} && currentBranch=$(git rev-parse --abbrev-ref HEAD) && git pullitch $targetBranch && git switch $currentBranch && git merge --no-ff $targetBranch; }; f"
+    quickmerge = "!f() { local targetBranch=${1:-main} && local currentBranch=$(git rev-parse --abbrev-ref HEAD) && git pullitch $targetBranch && git switch $currentBranch && git merge --no-ff $targetBranch; }; f"
 
     # Switches to and pulls given branch, switches back to the current branch and rebases on top of given branch.
     # Usage: git quickrebase [branch name (default: main)]
     #        e.g. git quickrebase
     #        e.g. git quickrebase feature/foo
-    quickrebase = "!f() { local targetBranch=${1:-main} && currentBranch=$(git rev-parse --abbrev-ref HEAD) && git pullitch $targetBranch && git switch $currentBranch && git rebase $targetBranch; }; f"
+    quickrebase = "!f() { local targetBranch=${1:-main} && local currentBranch=$(git rev-parse --abbrev-ref HEAD) && git pullitch $targetBranch && git switch $currentBranch && git rebase $targetBranch; }; f"
 
     # Deletes branches squashed into given branch.
     # Based on https://github.com/not-an-aardvark/git-delete-squashed
