@@ -34,10 +34,10 @@
     quick-merge = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git merge --no-ff $targetBranch; }; f"
 
     # Switches to and pulls given branch, switches back to the original branch and rebases on top of given branch.
-    # Usage: git quickrebase [branch name (default: main)]
-    #        e.g. git quickrebase
-    #        e.g. git quickrebase feature/foo
-    quickrebase = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git rebase $targetBranch; }; f"
+    # Usage: git quick-rebase [branch name (default: main)]
+    #        e.g. git quick-rebase
+    #        e.g. git quick-rebase feature/foo
+    quick-rebase = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git rebase $targetBranch; }; f"
 
     # Deletes branches merged into given branch.
     # Partially based on https://github.com/not-an-aardvark/git-delete-squashed
