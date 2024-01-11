@@ -17,6 +17,10 @@
     #        e.g. git debug status
     debug = !GIT_TRACE=1 git
 
+    # Switch back to previous branch.
+    # Usage: git back
+    back = "!f() { git switch -; }; f"
+
     # Switches to and pulls given branch.
     # Usage: git pullitch [branch name (default: main)]
     #        e.g. git pullitch
@@ -89,7 +93,3 @@
     #        e.g. git pushupto v1.0.0
     #        e.g. git pushupto 1a2b3c4
     pushupto = "!f() { local targetRef=${1:-main} && currentBranch=$(git rev-parse --abbrev-ref HEAD) && git push origin $targetRef:refs/heads/$currentBranch; }; f"
-
-    # Switch back to previous branch.
-    # Usage: git back
-    back = "!f() { git switch -; }; f"
