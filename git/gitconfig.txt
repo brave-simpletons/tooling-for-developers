@@ -92,4 +92,4 @@
 
     # Switch back to previous branch.
     # Usage: git back
-    back = !git switch - && :
+    back = "!f() { git switch -; }; f"
