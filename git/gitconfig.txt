@@ -83,9 +83,12 @@
     # Usage: git spick-and-span
     spick-and-span = "!f() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }; f"
 
-    # Pushes current branch history up to the specified commit hash.
-    # Usage: git pushupto <commit hash>
-    pushupto = !currentBranch=$(git rev-parse --abbrev-ref HEAD) && git push origin $1:refs/heads/$currentBranch && :
+    # Pushes current branch history up to the specified reference.
+    # Usage: git pushupto <ref>
+    #        e.g. git pushupto feature/foo
+    #        e.g. git pushupto v1.0.0
+    #        e.g. git pushupto 1a2b3c4
+    pushupto = "!f() { local targetRef=${1:-main} && currentBranch=$(git rev-parse --abbrev-ref HEAD) && git push origin $targetRef:refs/heads/$currentBranch; }; f"
 
     # Switch back to previous branch.
     # Usage: git back
