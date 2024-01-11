@@ -42,10 +42,11 @@
     #        e.g. git delete-squashed feature/foo
     delete-squashed = "!f() { local targetBranch=${1:-main} && git checkout -q $targetBranch && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
 
-    # Rename a file or a folder. Supports rename operations with only case changes.
+    # Rename a file or a folder.
+    # Supports rename operations with only case changes.
     # Usage: git rename [original file/folder name] [new file/folder name]
-    #        e.g. git rename src/utils/Log src/utils/log
-    rename = !git mv \"$1\" \"$1_TMP\" && git mv \"$1_TMP\" \"$2\" && :
+    #        e.g. git rename foo bar
+    rename = "!f() { local fromPath=$1 && local toPath=$2 && git mv \"$fromPath\" \"${fromPath}_TMP\" && git mv \"${fromPath}_TMP\" \"$toPath\"; }; f"
 
     # Append staged changes to last commit without editing commit message
     # Usage: git append
