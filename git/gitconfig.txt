@@ -73,7 +73,11 @@
     #        e.g. git reword foo
     reword = "!f() { local newMessage=$1 && git commit --amend -m \"$newMessage\"; }; f"
 
-    # TODO: Add cleanmerged alias
+    # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches merged into given branch.
+    # Usage: git cleanmerged [branch name (default: main)]
+    #        e.g. git cleanmerged
+    #        e.g. git cleanmerged feature/foo
+    cleanmerged = "!f() { local targetBranch=${1:-main} && git switch $targetBranch && git pull -p --tags && git delete-merged $targetBranch; }; f"
 
     # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch.
     # Usage: git cleansquashed [branch name (default: main)]
