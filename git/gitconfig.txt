@@ -68,6 +68,8 @@
     #        e.g. git reword foo
     reword = "!f() { local newMessage=$1 && git commit --amend -m \"$newMessage\"; }; f"
 
+    # TODO: Add cleanmerged alias
+
     # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch.
     # Usage: git cleansquashed [branch name (default: main)]
     #        e.g. git cleansquashed
