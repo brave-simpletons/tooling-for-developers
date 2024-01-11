@@ -36,10 +36,10 @@
     quickrebase = "!f() { local targetBranch=${1:-main} && currentBranch=$(git rev-parse --abbrev-ref HEAD) && git pullitch $targetBranch && git switch $currentBranch && git rebase $targetBranch; }; f"
 
     # Deletes branches squashed into given branch.
+    # Based on https://github.com/not-an-aardvark/git-delete-squashed
     # Usage: git delete-squashed [branch name (default: main)]
     #        e.g. git delete-squashed
     #        e.g. git delete-squashed feature/foo
-    # Based on https://github.com/not-an-aardvark/git-delete-squashed
     delete-squashed = "!f() { local targetBranch=${1:-main} && git checkout -q $targetBranch && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
 
     # Rename a file or a folder. Supports rename operations with only case changes.
