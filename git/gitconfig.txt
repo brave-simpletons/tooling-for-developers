@@ -37,6 +37,8 @@
     #        e.g. git quickrebase feature/foo
     quickrebase = "!f() { local targetBranch=${1:-main} && local currentBranch=$(git rev-parse --abbrev-ref HEAD) && git pullitch $targetBranch && git switch $currentBranch && git rebase $targetBranch; }; f"
 
+    # TODO: Add delete-merged alias
+
     # Deletes branches squashed into given branch.
     # Based on https://github.com/not-an-aardvark/git-delete-squashed
     # Usage: git delete-squashed [branch name (default: main)]
