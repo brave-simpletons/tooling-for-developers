@@ -13,7 +13,7 @@
     longpaths = true
 [alias]
     # Debug git commands.
-    # Usage: git debug [other git command]
+    # Usage: git debug <other git command>
     #        e.g. git debug status
     debug = !GIT_TRACE=1 git
 
@@ -44,7 +44,7 @@
 
     # Rename a file or a folder.
     # Supports rename operations with only case changes.
-    # Usage: git rename [original file/folder name] [new file/folder name]
+    # Usage: git rename <original file/folder name> <new file/folder name>
     #        e.g. git rename foo bar
     rename = "!f() { local fromPath=$1 && local toPath=$2 && git mv \"$fromPath\" \"${fromPath}_TMP\" && git mv \"${fromPath}_TMP\" \"$toPath\"; }; f"
 
@@ -53,11 +53,11 @@
     append = "!f() { git commit --amend --no-edit; }; f"
 
     # Shortens the given commit hash.
-    # Usage: git shorten [commit hash]
+    # Usage: git shorten <commit hash>
     shorten = !git rev-parse --short $1 && :
 
     # Change last commit's message.
-    # Usage: git reword "[new message]"
+    # Usage: git reword <new message>
     reword = !git commit --amend -m \"$1\" && :
 
     # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch.
@@ -75,7 +75,7 @@
     spick-and-span = !git reflog expire --expire-unreachable=now --all && git gc --prune=now && :
 
     # Pushes current branch history up to the specified commit hash.
-    # Usage: git pushupto [commit hash]
+    # Usage: git pushupto <commit hash>
     pushupto = !currentBranch=$(git rev-parse --abbrev-ref HEAD) && git push origin $1:refs/heads/$currentBranch && :
 
     # Switch back to previous branch.
