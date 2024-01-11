@@ -25,12 +25,12 @@
     # Switches to and pulls given branch, switches back to the current branch and merges from given branch.
     # Usage: git quickmerge [other branch name]
     #        e.g. git quickmerge main
-    quickmerge = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git merge --no-ff $1 && :
+    quickmerge = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git pullitch $1 && git switch $CURRENT_BRANCH && git merge --no-ff $1 && :
 
     # Switches to and pulls given branch, switches back to the current branch and rebases on top of given branch.
     # Usage: git quickrebase [other branch name]
     #        e.g. git quickrebase main
-    quickrebase = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git rebase $1 && :
+    quickrebase = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git pullitch $1 && git switch $CURRENT_BRANCH && git rebase $1 && :
 
     # Deletes branches squashed into given branch.
     # Usage: git delete-squashed [branch name (default: main)]
