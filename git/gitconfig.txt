@@ -13,65 +13,92 @@
     longpaths = true
 [alias]
     # Debug git commands.
-    # Usage: git debug [other git command]
+    # Usage: git debug <other git command>
     #        e.g. git debug status
     debug = !GIT_TRACE=1 git
 
-    # Switches to and pulls given branch, switches back to the current branch and merges from given branch.
-    # Usage: git quickmerge [other branch name]
-    #        e.g. git quickmerge master
-    quickmerge = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git merge --no-ff $1 && :
-
-    # Switches to and pulls given branch, switches back to the current branch and rebases on top of given branch.
-    # Usage: git quickrebase [other branch name]
-    #        e.g. git quickrebase master
-    quickrebase = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git switch $1 && git pull && git switch $CURRENT_BRANCH && git rebase $1 && :
+    # Switch back to previous branch.
+    # Usage: git back
+    back = "!f() { git switch -; }; f"
 
     # Switches to and pulls given branch.
-    # Usage: git pullitch [other branch name]
-    #        e.g. git pullitch master
-    pullitch = !git switch $1 && git pull && :
+    # Usage: git pullitch [branch name (default: main)]
+    #        e.g. git pullitch
+    #        e.g. git pullitch feature/foo
+    pullitch = "!f() { local targetBranch=${1:-main} && git switch $targetBranch && git pull; }; f"
+
+    # Switches to and pulls given branch, switches back to the original branch and merges from given branch.
+    # Usage: git quick-merge [branch name (default: main)]
+    #        e.g. git quick-merge
+    #        e.g. git quick-merge feature/foo
+    quick-merge = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git merge --no-ff $targetBranch; }; f"
+
+    # Switches to and pulls given branch, switches back to the original branch and rebases on top of given branch.
+    # Usage: git quick-rebase [branch name (default: main)]
+    #        e.g. git quick-rebase
+    #        e.g. git quick-rebase feature/foo
+    quick-rebase = "!f() { local targetBranch=${1:-main} && git pullitch $targetBranch && git back && git rebase $targetBranch; }; f"
+
+    # Deletes branches merged into given branch.
+    # Partially based on https://github.com/not-an-aardvark/git-delete-squashed
+    # Usage: git delete-merged [branch name (default: main)]
+    #        e.g. git delete-merged
+    #        e.g. git delete-merged feature/foo
+    delete-merged = "!f() { local targetBranch=${1:-main} && git checkout -q $targetBranch && git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d; }; f"
 
     # Deletes branches squashed into given branch.
-    # Usage: git delete-squashed [branch name]
     # Based on https://github.com/not-an-aardvark/git-delete-squashed
-    delete-squashed = "!git checkout -q $1 && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $1 $branch) && [[ $(git cherry $1 $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done" && :
+    # Usage: git delete-squashed [branch name (default: main)]
+    #        e.g. git delete-squashed
+    #        e.g. git delete-squashed feature/foo
+    delete-squashed = "!f() { local targetBranch=${1:-main} && git checkout -q $targetBranch && git for-each-ref refs/heads/ \"--format=%(refname:short)\" | while read branch; do mergeBase=$(git merge-base $targetBranch $branch) && [[ $(git cherry $targetBranch $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == \"-\"* ]] && git branch -D $branch; done; }; f"
 
-    # Rename a file or a folder. Supports rename operations with only case changes.
-    # Usage: git rename [original file/folder name] [new file/folder name]
-    #        e.g. git rename src/utils/Log src/utils/log
-    rename = !git mv \"$1\" \"$1_TMP\" && git mv \"$1_TMP\" \"$2\" && :
+    # Rename a file or a folder.
+    # Supports rename operations with only case changes.
+    # Usage: git rename <original file/folder name> <new file/folder name>
+    #        e.g. git rename foo bar
+    rename = "!f() { local fromPath=$1 && local toPath=$2 && git mv \"$fromPath\" \"${fromPath}_TMP\" && git mv \"${fromPath}_TMP\" \"$toPath\"; }; f"
 
-    # Append staged changes to last commit without editing commit message
+    # Append staged changes to last commit without editing commit message.
     # Usage: git append
-    append = !git commit --amend --no-edit && :
+    append = "!f() { git commit --amend --no-edit; }; f"
 
-    # Shortens the given commit hash
-    # Usage: git shorten [commit hash]
-    shorten = !git rev-parse --short $1 && :
+    # Shortens the given commit hash.
+    # Usage: git shorten <commit hash>
+    #        e.g. git shorten 1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
+    shorten = "!f() { local commitHash=$1 && git rev-parse --short $commitHash; }; f"
 
-    # Change last commit's message
-    # Usage: git reword "[new message]"
-    reword = !git commit --amend -m \"$1\" && :
+    # Change last commit's message.
+    # Usage: git reword <new message>
+    #        e.g. git reword foo
+    reword = "!f() { local newMessage=$1 && git commit --amend -m \"$newMessage\"; }; f"
 
-    # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch
-    # Usage: git cleanmerged [branch name]
-    #        e.g. git cleanmerged master
-    cleanmerged = !git switch $1 && git pull -p --tags && git delete-squashed $1 && :
+    # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches merged into given branch.
+    # Usage: git clean-merged [branch name (default: main)]
+    #        e.g. git clean-merged
+    #        e.g. git clean-merged feature/foo
+    clean-merged = "!f() { local targetBranch=${1:-main} && git switch $targetBranch && git pull -p --tags && git delete-merged $targetBranch; }; f"
 
-    # Alias for cleanmerged
-    # Usage: git tidy [branch name]
-    tidy = !git cleanmerged $1
+    # Switches and pulls latest from given branch, prunes remote branches, fetches tags and deletes branches squashed into given branch.
+    # Usage: git clean-squashed [branch name (default: main)]
+    #        e.g. git clean-squashed
+    #        e.g. git clean-squashed feature/foo
+    clean-squashed = "!f() { local targetBranch=${1:-main} && git switch $targetBranch && git pull -p --tags && git delete-squashed $targetBranch; }; f"
 
-    # Remove all dangling commits (including those still reachable from stashes and other reflogs)
+    # Alias for clean-squashed.
+    # Usage: git tidy [branch name (default: main)]
+    #        e.g. git tidy
+    #        e.g. git tidy feature/foo
+    tidy = "!f() { local targetBranch=${1:-main} && git clean-squashed $targetBranch; }; f"
+
+    # Remove all dangling commits (including those still reachable from stashes and other reflogs).
     # Based on https://stackoverflow.com/a/4528593
-    # Usage: git spick-and-span
-    spick-and-span = !git reflog expire --expire-unreachable=now --all && git gc --prune=now && :
+    # Usage: git purge-dangling
+    purge-dangling = "!f() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }; f"
 
-    # Pushes current branch history up to the specified commit hash
-    # Usage: git pushupto [commit hash]
-    pushupto = !CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git push origin $1:refs/heads/$CURRENT_BRANCH && :
-
-    # Switch back to previous branch
-    # Usage: git back
-    back = !git switch - && :
+    # Pushes current branch history up to the specified reference.
+    # Usage: git push-up-to <ref>
+    #        e.g. git push-up-to feature/foo
+    #        e.g. git push-up-to v1.0.0
+    #        e.g. git push-up-to 1a2b3c4
+    push-up-to = "!f() { local targetRef=${1:-main} && currentBranch=$(git rev-parse --abbrev-ref HEAD) && git push origin $targetRef:refs/heads/$currentBranch; }; f"
