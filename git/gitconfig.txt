@@ -11,6 +11,8 @@
     rebase = true
 [core]
     longpaths = true
+[remote "origin"]
+    fetch = +refs/pull/*/merge:refs/remotes/origin/pull/*
 [alias]
     # Debug git commands.
     # Usage: git debug <other git command>
