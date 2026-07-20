@@ -14,6 +14,23 @@
 [remote "origin"]
     fetch = +refs/pull/*/merge:refs/remotes/origin/pull/*
 [alias]
+    # Short alias for commit command.
+    # Usage: git c <commit message> [commit arguments]
+    #        e.g. git c "Lorem ipsum"
+    #        e.g. git c "Lorem ipsum" --amend
+    c = commit -m
+
+    # Short alias for push command.
+    # Usage: git p [push arguments]
+    #        e.g. git p
+    #        e.g. git p origin feature/foo
+    p = push
+
+    # Short alias for switch command.
+    # Usage: git s [switch arguments]
+    #        e.g. git s feature/foo
+    s = switch
+
     # Debug git commands.
     # Usage: git debug <other git command>
     #        e.g. git debug status
@@ -104,3 +121,9 @@
     #        e.g. git push-up-to v1.0.0
     #        e.g. git push-up-to 1a2b3c4
     push-up-to = "!f() { local targetRef=${1:-main} && currentBranch=$(git rev-parse --abbrev-ref HEAD) && git push origin $targetRef:refs/heads/$currentBranch; }; f"
+
+    # Show diff of untracked files in the stash corresponding to the given ID. 
+    # Usage: git diff-untracked-stashed [stash id (default: 0)]
+    #        e.g. git diff-untracked-stashed
+    #        e.g. git diff-untracked-stashed 2
+    diff-untracked-stashed = "!f() { local stashId=${1:-0} && git show "stash@{$stashId}^3"; }; f"
