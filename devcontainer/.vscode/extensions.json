@@ -1,0 +1,32 @@
+{
+  "recommendations": [
+    "ban.spellright",
+    "yzhang.markdown-all-in-one",
+    "fcrespo82.markdown-table-formatter",
+    "mushan.vscode-paste-image",
+    "bierner.markdown-mermaid",
+    "davidanson.vscode-markdownlint",
+    "christian-kohler.path-intellisense",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "gruntfuggly.todo-tree",
+    "johnpapa.vscode-peacock",
+    "lostintangent.vsls-whiteboard",
+    "ms-vsliveshare.vsliveshare",
+    "vscode-icons-team.vscode-icons",
+    "pflannery.vscode-versionlens",
+    "esbenp.prettier-vscode",
+    "visualstudioexptteam.vscodeintellicode",
+    "ms-dotnettools.csharp",
+    "shardulm94.trailing-spaces",
+    "eservice-online.vs-sharper",
+    "fudge.auto-using",
+    "usernamehw.errorlens",
+    "ryanluker.vscode-coverage-gutters",
+    "hbenl.vscode-test-explorer",
+    "formulahendry.dotnet-test-explorer",
+    "coddx.coddx-alpha",
+    "ms-vscode.powershell"
+  ]
+}

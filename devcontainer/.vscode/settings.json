@@ -1,0 +1,195 @@
+{
+  "vsicons.dontShowNewVersionMessage": true,
+
+  "workbench.iconTheme": "vscode-icons",
+
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "editor.inlineSuggest.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+
+  "pasteImage.path": "${currentFileDir}/images",
+
+  "spellright.language": [
+    "fr",
+    "en"
+  ],
+
+  "coddx.taskBoard.fileList": "KANBAN.md",
+
+  "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj",
+  "dotnet-test-explorer.testArguments": "/p:CollectCoverage=true /p:CoverletOutputFormat=lcov /p:CoverletOutput=../../lcov.info",
+  "dotnet-test-explorer.pathForResultFile": "./src/TestResults",
+  "dotnet-test-explorer.runInParallel": true,
+  "dotnet-test-explorer.autoWatch": true,
+  "dotnet-test-explorer.autoExpandTree": true,
+  "dotnet-test-explorer.treeMode": "full",
+  "dotnet-test-explorer.enableTelemetry": false,
+
+  "testExplorer.addToEditorContextMenu": true,
+
+  "coverage-gutters.showGutterCoverage": false,
+  "coverage-gutters.showLineCoverage": true,
+  "coverage-gutters.showRulerCoverage": true,
+  "coverage-gutters.coverageFileNames": [
+    "lcov.info",
+    "cov.xml",
+    "coverage.xml",
+    "coverage*.xml",
+    "jacoco.xml",
+    "coverage.cobertura.xml"
+  ],
+  "coverage-gutters.coverageReportFileName": "coverage/index.html",
+
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.general.statusBar": "tags",
+  "todo-tree.general.statusBarClickBehaviour": "reveal",
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "HOTFIX",
+    "FIX",
+    "FIXIT",
+    "BAD",
+    "TRASH"
+  ],
+  "todo-tree.general.tagGroups": {
+    "FIXME": [
+      "FIXME",
+      "FIXIT",
+      "FIX"
+    ],
+    "XXX": [
+      "XXX",
+      "BAD",
+      "TRASH"
+    ]
+  },
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+  "todo-tree.regex.regexCaseSensitive": false,
+  "todo-tree.tree.hideIconsWhenGroupedByTag": false,
+  "todo-tree.tree.hideTreeWhenEmpty": false,
+  "todo-tree.tree.groupedByTag": false,
+  "todo-tree.tree.expanded": true,
+  "todo-tree.tree.flat": false,
+  "todo-tree.tree.showCountsInTree": true,
+  "todo-tree.tree.tagsOnly": false,
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.highlights.backgroundColourScheme": [
+    "white"
+  ],
+  "todo-tree.highlights.foregroundColourScheme": [
+    "black"
+  ],
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "line",
+    "foreground": "red",
+    "background": "white",
+    "opacity": 50,
+    "iconColour": "blue",
+    "gutterIcon": false
+  },
+  "todo-tree.highlights.customHighlight": {
+    "BUG": {
+      "icon": "bug",
+      "iconColour": "firebrick",
+      "background": "firebrick"
+    },
+    "HACK": {
+      "icon": "rocket",
+      "iconColour": "deeppink",
+      "background": "deeppink"
+    },
+    "FIXME": {
+      "icon": "tools",
+      "iconColour": "green",
+      "background": "green"
+    },
+    "HOTFIX": {
+      "icon": "flame",
+      "iconColour": "orange",
+      "background": "orange"
+    },
+    "TODO": {
+      "icon": "checklist",
+      "iconColour": "deepskyblue",
+      "background": "deepskyblue"
+    },
+    "XXX": {
+      "icon": "trash",
+      "iconColour": "olive",
+      "background": "olive"
+    },
+    "[ ]": {
+      "icon": "check",
+      "iconColour": "lightpink",
+      "background": "lightpink",
+      "foreground": "red",
+      "type": "tag"
+    },
+    "[x]": {
+      "icon": "check-circle",
+      "iconColour": "palegreen",
+      "background": "palegreen",
+      "foreground": "green",
+      "type": "tag",
+      "hideFromStatusBar": true,
+      "hideFromTree": true,
+      "gutterIcon": true
+    }
+  },
+
+  // Peacock configuration -- Start
+  "peacock.color": "#F7F959",
+  "peacock.remoteColor": "#F7F959",
+  "peacock.showColorInStatusBar": false,
+  // Peacock configuration -- Surroundings
+  "peacock.affectTitleBar": true,
+  "peacock.affectStatusBar": true,
+  "peacock.affectDebuggingStatusBar": false,
+  "peacock.affectActivityBar": false,
+  // Peacock configuration -- Borders
+  "peacock.affectTabActiveBorder": true,
+  "peacock.affectSideBarBorder": true,
+  "peacock.affectPanelBorder": true,
+  "peacock.affectStatusAndTitleBorders": false,
+  "workbench.colorCustomizations": {
+    "commandCenter.border": "#15202b99",
+    "panel.border": "#f9fb8a",
+    "sash.hoverBorder": "#f9fb8a",
+    "sideBar.border": "#f9fb8a",
+    "statusBar.background": "#f7f959",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#f5f728",
+    "statusBarItem.remoteBackground": "#f7f959",
+    "statusBarItem.remoteForeground": "#15202b",
+    "tab.activeBorder": "#f9fb8a",
+    "titleBar.activeBackground": "#f7f959",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#f7f95999",
+    "titleBar.inactiveForeground": "#15202b99"
+  }
+  // Peacock configuration -- End
+}
+
+
+
+
+
+
+
